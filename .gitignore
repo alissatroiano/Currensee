@@ -1,0 +1,5 @@
+/app
+Pipfile
+Pipfile.lock
+.DS_Store
+db.sqlite3
