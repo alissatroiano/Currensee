@@ -1,0 +1,31 @@
+name: Update Crypto Prices
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: "0 23 * * *"
+
+
+jobs:
+  update_crypto_prices:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+
+    - name: Install dependencies
+      run: |
+        pip install requests
+        pip install pandas
+
+    - name: Run Python script
+      run: python fetch_update_crypto_dataset.py
