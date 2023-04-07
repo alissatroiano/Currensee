@@ -1,0 +1,49 @@
+LOGISTIC
+25006
+573
+573
+Mean Absolute Error (MAE): 23077.02460383444
+Mean Squared Error (MSE): 708760239.8820229
+Root Mean Squared Error (RMSE): 26622.55134058385
+
+
+25006
+1073
+1073
+Mean Absolute Error (MAE): 22698.323898355648
+Mean Squared Error (MSE): 685107864.8987601
+Root Mean Squared Error (RMSE): 26174.565228457188
+
+
+25006
+2073
+2073
+Mean Absolute Error (MAE): 21083.22636591696
+Mean Squared Error (MSE): 592839075.9048388
+Root Mean Squared Error (RMSE): 24348.286919305818
+
+25006
+4073
+4073
+Mean Absolute Error (MAE): 18692.389900458562
+Mean Squared Error (MSE): 459697911.35773176
+Root Mean Squared Error (RMSE): 21440.566955137445
+
+------------------------------------------------------------------------
+FLAT
+
+FOR 900 DAYS FORECAST
+25005
+991
+991
+Mean Absolute Error (MAE): 13147.545460204585
+Mean Squared Error (MSE): 253415200.76783517
+Root Mean Squared Error (RMSE): 15919.020094460437
+
+
+25005
+1891
+1891
+Mean Absolute Error (MAE): 12802.168822454687
+Mean Squared Error (MSE): 255357132.50047266
+Root Mean Squared Error (RMSE): 15979.897762516275
