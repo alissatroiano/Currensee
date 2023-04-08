@@ -1,13 +1,13 @@
 const express = require("express");
-const path = require("path");
-
-const app = express();
-app.get('/', function (req, res) {
-    res.send('GET request to homepage. Test')
-  })
-
+const app = express();  
 const port = 3000;
+
+app.use(express.static('public'));
+
+app.get('/', function (req, res) {
+    res.sendFile('index.html', { root: __dirname });
+});
+
 app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-}
-);
+    console.log(`Now listening on port ${port}`); 
+});
