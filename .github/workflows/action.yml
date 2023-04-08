@@ -28,4 +28,4 @@ jobs:
         pip install pandas
 
     - name: Run Python script
-      run: python fetch_update_crypto_dataset.py
+      run: python functions/fetch_update_crypto_dataset.py
