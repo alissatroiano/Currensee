@@ -5,8 +5,8 @@ const fs = require("fs");
 const path = require("path");
 const MindsDB = require("mindsdb-js-sdk").default;
 
-const tradeDataHandler = require("./handlers/tradeDataHandler.js");
-const forecastHandler = require("./handlers/forecastHandler.js");
+const tradeDataHandler = require("./handlers/cryptoHandler.js");
+const forecastHandler = require("./handlers/predictionHandler.js");
 
 commander
   .version("1.0.0", "-v, --version")
