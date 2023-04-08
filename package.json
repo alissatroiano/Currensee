@@ -1,0 +1,33 @@
+{
+  "name": "currensee",
+  "version": "1.0.0",
+  "description": "crypto app that uses mindsdb to make future coin predictions",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": " \"echo \\\"Error: no test specified\\\" && exit 1\"",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alissatroiano/Currensee.git"
+  },
+  "keywords": [
+    "github",
+    "mindsdb",
+    "ml",
+    "ai",
+    "data"
+  ],
+  "author": "Alissa Troiano",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alissatroiano/Currensee/issues"
+  },
+  "homepage": "https://github.com/alissatroiano/Currensee#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
