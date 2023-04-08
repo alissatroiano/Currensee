@@ -4,6 +4,17 @@
 - [Table of Contents](#table-of-contents)
 - [Introduction](#introduction)
 - [Features](#features)
+   - [User Stories](#user-stories)
+    - [Wireframes](#wireframes)
+- [Technologies](#technologies)
+    - [Languages](#languages)
+    - [Frameworks](#frameworks)
+- [Deployment](#deployment)
+- [Credits](#credits)
+    - [Code](#code)
+    - [Content](#content)
+    - [Media](#media)
+    - [Other](#other)
 
 ## Introduction
 
@@ -21,7 +32,7 @@ The financial app aims to provide the following features:
 
 - Visualization: The app uses data visualization techniques to present the forecasted and analyzed data in graphical form, such as line charts, bar charts, and candlestick charts, to make it easier for users to interpret and understand the information.
 
-## Technology Stack
+## Technologies
 The financial app is being developed using the following technologies:
 
 - Python: A powerful programming language that is widely used in data analysis and machine learning tasks. It is used to implement the backend logic and data processing tasks.
@@ -34,8 +45,13 @@ The financial app is being developed using the following technologies:
 
 ## Credits
 
+### Code
+
 - [MindsDB JS Example](https://github.com/mindsdb/js-example) was used to learn the basics of connecting a front-end application to MindsDB using MindsDB's JavaScript SDK
 
 - [Levelup](https://levelup.gitconnected.com/set-up-and-run-a-simple-node-server-project-38b403a3dc09)
 
+### Content
 
+### Media
+### Other
