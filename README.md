@@ -1,4 +1,11 @@
-# Financial App README
+# Currensee
+
+## Table of Contents
+- [Table of Contents](#table-of-contents)
+- [Introduction](#introduction)
+- [Features](#features)
+
+## Introduction
 
 This financial app is a data-driven application that provides forecasting and analysis of cryptocurrencies. It is currently in the development phase and is being built using Python, Django, API, and MindsDB.
 
@@ -26,8 +33,6 @@ The financial app is being developed using the following technologies:
 - MindsDB: An open-source machine learning tool that simplifies the process of building and deploying predictive models. It is used to train and generate forecasts for cryptocurrency prices.
 
 ## Credits
-
-### 
 
 - [MindsDB JS Example](https://github.com/mindsdb/js-example) was used to learn the basics of connecting a front-end application to MindsDB using MindsDB's JavaScript SDK
 
