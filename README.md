@@ -49,7 +49,7 @@ The financial app is being developed using the following technologies:
 
 - [MindsDB JS Example](https://github.com/mindsdb/js-example) was used to learn the basics of connecting a front-end application to MindsDB using MindsDB's JavaScript SDK
 
-- [Levelup](https://levelup.gitconnected.com/set-up-and-run-a-simple-node-server-project-38b403a3dc09)
+- [Levelup](https://levelup.gitconnected.com/set-up-and-run-a-simple-node-server-project-38b403a3dc09) - Used to aid the developers in setting up a Node JS server
 
 ### Content
 
