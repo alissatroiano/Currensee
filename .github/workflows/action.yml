@@ -2,9 +2,9 @@ name: Update Crypto Prices
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
   schedule:
     - cron: "0 23 * * *"
 
@@ -28,4 +28,4 @@ jobs:
         pip install pandas
 
     - name: Run Python script
-      run: python fetch_update_crypto_dataset.py
+      run: python functions/fetch_update_crypto_dataset.py
