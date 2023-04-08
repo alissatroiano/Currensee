@@ -24,3 +24,13 @@ The financial app is being developed using the following technologies:
 - API: Application Programming Interface (API) is used to fetch real-time cryptocurrency data from external sources, such as cryptocurrency exchanges, and integrate it into the app.
 
 - MindsDB: An open-source machine learning tool that simplifies the process of building and deploying predictive models. It is used to train and generate forecasts for cryptocurrency prices.
+
+## Credits
+
+### 
+
+- [MindsDB JS Example](https://github.com/mindsdb/js-example) was used to learn the basics of connecting a front-end application to MindsDB using MindsDB's JavaScript SDK
+
+- [Levelup](https://levelup.gitconnected.com/set-up-and-run-a-simple-node-server-project-38b403a3dc09)
+
+
