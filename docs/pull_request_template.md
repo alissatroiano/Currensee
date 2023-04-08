@@ -1,12 +1,12 @@
 # Currensee MindsDB Project Pull Request
 
 ## Description
-- Add a brief description of the work you did
+- ***Add a brief description of the work you did***
 
 ## Breaking Changes
 
 ## Issue
-- Add linked issue here (type #)
+- ***Add linked issue here (type #)***
 
 ## Screenshots
-- Add any screenshots of your work here
+- ***Add any screenshots of your work here***
