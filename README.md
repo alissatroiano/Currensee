@@ -79,7 +79,9 @@ The financial app is being developed using the following technologies:
 
 <!-- - API: Application Programming Interface (API) is used to fetch real-time cryptocurrency data from external sources, such as cryptocurrency exchanges, and integrate it into the app. -->
 
-- [MindsDB](https://mindsdb.com/): An open-source machine learning tool that simplifies the process of building and deploying predictive models. It is used to train and generate forecasts for cryptocurrency prices.
+- [MindsDB](https://mindsdb.com/): MindsDB is an open-source machine learning tool that simplifies the process of building and deploying predictive models. Currensee will use MindsDB to create custom prediction models and train them on historical data.
+
+- [MindsDB Python SDK](): Will be used to establish to the connection between MindsDB and this application.
 ## Credits
 
 ### Code
