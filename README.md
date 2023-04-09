@@ -77,7 +77,7 @@ The financial app is being developed using the following technologies:
 
 - Bootstrap 5: The Bootstrap framework was used to simplify cross-platform responsiveness and add overall structure and styling.
 
-<!-- - API: Application Programming Interface (API) is used to fetch real-time cryptocurrency data from external sources, such as cryptocurrency exchanges, and integrate it into the app. -->
+- API: Application Programming Interface (API) is used to fetch real-time cryptocurrency data from external sources, such as cryptocurrency exchanges, and integrate it into the app.
 
 - [MindsDB](https://mindsdb.com/): MindsDB is an open-source machine learning tool that simplifies the process of building and deploying predictive models. Currensee will use MindsDB to create custom prediction models and train them on historical data.
 
