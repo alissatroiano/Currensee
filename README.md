@@ -30,7 +30,9 @@ User stories were created during the planning phase of this project and were use
 
 - As a user, I want the **‘About’** section to provide meaningful information about this software, so I can learn where the data is coming from and how the predictions are made. 
 
-- As a user, I want to view a list of supported coins, so I can choose which predictions I want to view and when.
+- As a user, I want to fill out a search form so I can view my desired coin's predictions
+
+- As a user, I want to filter predictions using relevant parameters so I can preview the most useful data
 
 - As a user, I want to view meaningful data insights & predictions based on my coin's historical data, so I can make informed decisions about my cryptocurrency(s).
 
@@ -82,7 +84,12 @@ The financial app is being developed using the following technologies:
 - [MindsDB](https://mindsdb.com/): MindsDB is an open-source machine learning tool that simplifies the process of building and deploying predictive models. Currensee will use MindsDB to create custom prediction models and train them on historical data.
 
 - [MindsDB Python SDK](): Will be used to establish to the connection between MindsDB and this application.
+
+- [Google Fonts](https://fonts.google.com/specimen/Inter?query=inter) - Used for applying font styles to all typography
+
 ## Credits
+
+- [Bootstrap](https://getbootstrap.com/docs/5.3/examples/) - Bootsrap's documentation was used for code snippets pertaining to grid structure and layout
 
 ### Code
 
@@ -91,6 +98,8 @@ The financial app is being developed using the following technologies:
 - [Visme](https://visme.co/blog/website-color-schemes/) - UX research.
 
 - ["Psychology of Color in Financial App Design" from windmill.digital](https://www.windmill.digital/psychology-of-color-in-financial-app-design/) - UX research.
+
+- [fontpair](https://www.fontpair.co/all) - This article was used to view trending font pairings. The font set used for this project was found in this article
 
 ### Media
 ### Other
