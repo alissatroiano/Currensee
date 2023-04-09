@@ -17,24 +17,52 @@
     --trans-primary-2: #240090d1;
     --trans-primary-3: #180061a3;
     --trans-navy: #000c66c4;
-
 }
 
-/* Jumbotron */
+/* Main Page Content */
+.title {
+    font-family: 'Syne', sans-serif;
+    color: var(--light);
+    font-weight: 600;
+}
 
+.lead {
+    color: var(--lighter);
+}
+
+.small {
+    color: var(--light);
+}
+
+span {
+    color: var(--light-blue);
+    font-weight: 700;
+    /* text-shadow: 1px 1px 6px var(--trans-primary-3); */
+}
+
+.btn a {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: var(--light);
+}
+
+.btn-main {
+    background-color: var(--secondary-2);
+}
+/* Jumbotron */
 .jumbotron {
     /* background: linear-gradient(var(--trans-navy), var(--trans-primary-3)), url('../images/coins.jpg') no-repeat center center fixed;  */
     background-color: var(--primary-3);
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
     position: relative;
-    min-height: 100vh;
     width: 100%;
+    height: auto;
     overflow: hidden;
 }
 
 .image-box {
     box-shadow: inset 0 0 0 100vw rgba(0,0,0,0.5);
+}
+
+.svg {
+    color: var(--light-blue);
 }
