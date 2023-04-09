@@ -13,6 +13,28 @@
     --light: #eee;
     --trans-light: #fafafa7e;
     --trans-secondary: #2828287e;
-    --trans-primary: #3500d37e;
+    --trans-primary: #3500d3c2;
+    --trans-primary-2: #240090d1;
+    --trans-primary-3: #180061a3;
+    --trans-navy: #000c66c4;
+
 }
 
+/* Jumbotron */
+
+.jumbotron {
+    /* background: linear-gradient(var(--trans-navy), var(--trans-primary-3)), url('../images/coins.jpg') no-repeat center center fixed;  */
+    background-color: var(--primary-3);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.image-box {
+    box-shadow: inset 0 0 0 100vw rgba(0,0,0,0.5);
+}

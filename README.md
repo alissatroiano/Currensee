@@ -84,7 +84,12 @@ The financial app is being developed using the following technologies:
 - [MindsDB](https://mindsdb.com/): MindsDB is an open-source machine learning tool that simplifies the process of building and deploying predictive models. Currensee will use MindsDB to create custom prediction models and train them on historical data.
 
 - [MindsDB Python SDK](): Will be used to establish to the connection between MindsDB and this application.
+
+- [Google Fonts](https://fonts.google.com/specimen/Inter?query=inter) - Used for applying font styles to all typography
+
 ## Credits
+
+- [Bootstrap](https://getbootstrap.com/docs/5.3/examples/) - Bootsrap's documentation was used for code snippets pertaining to grid structure and layout
 
 ### Code
 
@@ -93,6 +98,8 @@ The financial app is being developed using the following technologies:
 - [Visme](https://visme.co/blog/website-color-schemes/) - UX research.
 
 - ["Psychology of Color in Financial App Design" from windmill.digital](https://www.windmill.digital/psychology-of-color-in-financial-app-design/) - UX research.
+
+- [fontpair](https://www.fontpair.co/all) - This article was used to view trending font pairings. The font set used for this project was found in this article
 
 ### Media
 ### Other
