@@ -30,7 +30,9 @@ User stories were created during the planning phase of this project and were use
 
 - As a user, I want the **‘About’** section to provide meaningful information about this software, so I can learn where the data is coming from and how the predictions are made. 
 
-- As a user, I want to view a list of supported coins, so I can choose which predictions I want to view and when.
+- As a user, I want to fill out a search form so I can view my desired coin's predictions
+
+- As a user, I want to filter predictions using relevant parameters so I can preview the most useful data
 
 - As a user, I want to view meaningful data insights & predictions based on my coin's historical data, so I can make informed decisions about my cryptocurrency(s).
 
@@ -77,7 +79,7 @@ The financial app is being developed using the following technologies:
 
 - Bootstrap 5: The Bootstrap framework was used to simplify cross-platform responsiveness and add overall structure and styling.
 
-<!-- - API: Application Programming Interface (API) is used to fetch real-time cryptocurrency data from external sources, such as cryptocurrency exchanges, and integrate it into the app. -->
+- API: Application Programming Interface (API) is used to fetch real-time cryptocurrency data from external sources, such as cryptocurrency exchanges, and integrate it into the app.
 
 - [MindsDB](https://mindsdb.com/): MindsDB is an open-source machine learning tool that simplifies the process of building and deploying predictive models. Currensee will use MindsDB to create custom prediction models and train them on historical data.
 
