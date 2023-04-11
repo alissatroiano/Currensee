@@ -5,3 +5,4 @@ Pipfile.lock
 db.sqlite3
 .idea
 venv/
+env/
