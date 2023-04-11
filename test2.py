@@ -16,6 +16,7 @@ database = server.get_database('files')
 print(database)
 
 table = database.get_table('main')
+print(table)
 project = server.get_project('mindsdb')
 
 # Define the model
@@ -30,4 +31,6 @@ query = """
 
 # print the results of the query
 result = database.query(query)
+df = result.DataFrame()
+
 print(result)

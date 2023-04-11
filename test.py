@@ -8,34 +8,36 @@ horizon = 10  # Replace with the desired horizon size for forecasting
 server = mindsdb_sdk.connect()
 server = mindsdb_sdk.connect('http://127.0.0.1:47334')
 
-server = mindsdb_sdk.connect(email='anand00rohan@gmail.com', password='Rohan@Rohit47')
-server = mindsdb_sdk.connect('https://cloud.mindsdb.com', email='anand00rohan@gmail.com', password='Rohan@Rohit47')
+server = mindsdb_sdk.connect(email='alissatroianonyc@gmail.com', password='B@nana$5900')
+server = mindsdb_sdk.connect('https://cloud.mindsdb.com', email='alissatroianonyc@gmail.com', password='B@nana$5900')
+
+# mdb = mindsdb_sdk.model('btcusd_predictor')
+database = server.get_database('files')
+print(database)
+
+table = database.list_tables()
+print(table)
 
 model_name = "btcusd_predictor"
+
 # Define the query
 query = """
-    FORECAST close_price
-    FROM mindsdb.{btcusd_predictor}
-    USING
-      (SELECT open_price, high_price, low_price, close_price
-       FROM my_data_to_predict)
+SELECT *
+FROM mindsdb.crypto4
+WHERE date = "2019-01-02";
 """
 
-# Execute the query
-result = server.query(query)
+result = mindsdb_sdk.query['SELECT * FROM mindsdb.crypto4 WHERE date = "2019-01-02";']
 
-# Access the forecasted values
-forecasted_values = result.predicted_values['close_price']
+# # Print the forecasted values
+print(result)
 
-# Print the forecasted values
-print(forecasted_values)
+# # Generate x-axis values (e.g., timestamps, dates)
+# x = range(len(result))
 
-# Generate x-axis values (e.g., timestamps, dates)
-x = range(len(forecasted_values))
-
-# Plot the forecasted values
-plt.plot(x, forecasted_values)
-plt.xlabel('Time')
-plt.ylabel('Close Price Forecast')
-plt.title('BTC/USD Close Price Forecast')
-plt.show()
+# # Plot the forecasted values
+# plt.plot(x, result)
+# plt.xlabel('Time')
+# plt.ylabel('Close Price Forecast')
+# plt.title('BTC/USD Close Price Forecast')
+# plt.show()
