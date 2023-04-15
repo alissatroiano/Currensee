@@ -12,7 +12,6 @@ checksumdir==1.2.0
 click==7.1.2
 clickhouse-driver==0.2.5
 clickhouse-sqlalchemy==0.2.3
-cliff==4.2.0
 cmaes==0.9.1
 cmd2==2.4.3
 colorlog==6.5.0
