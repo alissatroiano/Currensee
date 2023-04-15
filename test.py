@@ -1,43 +1,40 @@
-import mindsdb_sdk
-import matplotlib.pyplot as plt
-csv_file_path = 'functions/main.csv'
-window = 50  # Replace with the desired window size for prediction
-horizon = 10  # Replace with the desired horizon size for forecasting
+import argparse
+import json
+import mindsdb
 
-# Initialize MindsDB
-server = mindsdb_sdk.connect()
-server = mindsdb_sdk.connect('http://127.0.0.1:47334')
-
-server = mindsdb_sdk.connect(email='alissatroianonyc@gmail.com', password='B@nana$5900')
-server = mindsdb_sdk.connect('https://cloud.mindsdb.com', email='alissatroianonyc@gmail.com', password='B@nana$5900')
-
-# mdb = mindsdb_sdk.model('btcusd_predictor')
-database = server.get_database('files')
-print(database)
-
-table = database.list_tables()
-print(table)
-
-model_name = "btcusd_predictor"
-
-# Define the query
-query = """
-SELECT *
-FROM mindsdb.crypto4
-WHERE date = "2019-01-02";
+"""
+Checks the status of a model (generating, training, error, or complete).
+Example usage: python ./scripts/getStatus.py --name btcusdt_model
 """
 
-result = mindsdb_sdk.query['SELECT * FROM mindsdb.crypto4 WHERE date = "2019-01-02";']
+# Initialize argument parser
+parser = argparse.ArgumentParser(description='Check the status of a MindsDB model')
+parser.add_argument('-c', '--config-path', default='./config/mindsdb-config.json',
+                    help='path to config JSON file used for connecting to MindsDB.')
+parser.add_argument('-n', '--name', default='./config/model-config.json',
+                    help='name of the model to check the status for')
+args = parser.parse_args()
 
-# # Print the forecasted values
-print(result)
+# Load MindsDB configuration from JSON file
+with open(args.config_path) as f:
+    config = json.load(f)
 
-# # Generate x-axis values (e.g., timestamps, dates)
-# x = range(len(result))
+async def main():
+    mdb = mindsdb.Predictors(**config)
+    await mdb.connect()
+    return await mdb.get_model(model_name=args.name)
 
-# # Plot the forecasted values
-# plt.plot(x, result)
-# plt.xlabel('Time')
-# plt.ylabel('Close Price Forecast')
-# plt.title('BTC/USD Close Price Forecast')
-# plt.show()
+# Check model status
+async def check_model_status():
+    try:
+        model = await main()
+        if model:
+            print(f"Status of model {model.name} is {model.status}")
+        else:
+            print(f"Model with name {args.name} does not exist")
+    except Exception as e:
+        print(f"Fetching model failed with error: {e}")
+
+# Run the program
+if __name__ == '__main__':
+    check_model_status()

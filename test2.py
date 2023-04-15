@@ -1,36 +1,35 @@
-import matplotlib.pyplot as plt
-import mindsdb_sdk
+from flask import Flask, jsonify, request
+import json
+import mindsdb
 
-window = 50  # Replace with the desired window size for prediction
-horizon = 10  # Replace with the desired horizon size for forecasting
+app = Flask(__name__)
 
-server = mindsdb_sdk.connect()
-server = mindsdb_sdk.connect('http://127.0.0.1:47334')
-server = mindsdb_sdk.connect(email='anand00rohan@gmail.com', password='Rohan@Rohit47')
-server = mindsdb_sdk.connect('https://cloud.mindsdb.com', email='anand00rohan@gmail.com', password='Rohan@Rohit47')
-csv_file_path = 'functions/main.csv'
-# server.learn(from_data=csv_file_path, to_predict='close_price')
-# result = server.predict(when_data=csv_file_path)
-# print(result)
-database = server.get_database('files')
-print(database)
+@app.route('/check_model_status', methods=['GET'])
+def check_model_status_route():
+    # Get model name from query parameter
+    model_name = request.args.get('crypto4')
+    
+    # Load MindsDB configuration from JSON file
+    with open('./config/mindsdb-config.json') as f:
+        config = json.load(f)
 
-table = database.get_table('main')
-print(table)
-project = server.get_project('mindsdb')
+    async def main():
+        mdb = mindsdb.Predictors(**config)
+        await mdb.connect()
+        return await mdb.get_model(model_name=model_name)
 
-# Define the model
-model_name = "btcusd_predictor"
+    # Check model status
+    async def check_model_status():
+        try:
+            model = await main()
+            if model:
+                return {'status': f"Status of model {model.name} is {model.status}"}
+            else:
+                return {'error': f"Model with name {model_name} does not exist"}
+        except Exception as e:
+            return {'error': f"Fetching model failed with error: {e}"}
 
-# Define the query
-query = """
-    SELECT *
-    FROM models.btcusd_predictor
-    WHERE date = '2021-05-01';
-"""
-
-# print the results of the query
-result = database.query(query)
-df = result.DataFrame()
-
-print(result)
+    # Run the program
+    result = check_model_status()
+    # return jsonify(result)
+    print(result)

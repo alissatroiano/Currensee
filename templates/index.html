@@ -9,7 +9,7 @@
         </div>
         <h1 class="display-1 lh-1 my-3 title">Curren<span>see</span></h1>
         <h2 class="lead">Cryptocurrency Prediction Tool</h2>
-        <p class="small my-4">Powered by MindsDB</p>
+        <p class="small my-4">Powered by MindsDB </p>
         <div class="d-grid gap-2 d-md-flex justify-content-center mt-3 pt-3">
           <button type="button" class="btn btn-light btn-lg px-4 me-md-2">Get Started</button>
           <button type="button" class="btn btn-outline-secondary btn-lg px-4">About</button>
@@ -17,6 +17,22 @@
       </div>
     </div>
   </section>
+
+  <div class="container-fluid">
+    <div class="row">
+      {% for database in databases %}
+      <div class="col-12">
+        <div class="card my-5">
+          <div class="card-body">
+            <h5 class="card-title">{{ database.name }}</h5>
+            <p class="card-text">{{ database.description }}</p>
+            <a href="{{ url_for('database', database_id=database.id) }}" class="btn btn-primary">View</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
 
 
 {% endblock %}
