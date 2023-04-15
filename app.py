@@ -11,7 +11,7 @@ def index():
     # Use MindsDB server object here
     project = server.get_project('mindsdb')
     model = project.get_model('btcusd_predictor')
-    return 'Connected to MindsDB server. Your BTC model is: {}'.format(model)
+    return 'Connected to MindsDB server. Your BTC model is: {}'.format(model.name)
 
 
 if __name__ == '__main__':
