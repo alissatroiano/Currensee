@@ -28,8 +28,6 @@ requests >= 2.0.0
 MindsDB==23.3.5.0
 mindsdb-evaluator==0.0.6
 mindsdb-sdk==1.0.1
-mindsdb-sql==0.4.10
-mindsdb-streams==0.1.1
 mysql-connector-python
 Jinja2==2.11.3
 clickhouse-driver
