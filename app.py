@@ -14,9 +14,6 @@ def index():
     return 'Connected to MindsDB server. Your BTC model is: {}'.format(model.name)
 
 
-if __name__ == '__main__':
-    app.run(debug=False)
-
 # _BINANCE_INTEGRATION = "my_binance"
 # _AGGREGATED_TRADE_DATA_TABLE = "aggregated_trade_data"
 # mdb = mindsdb_sdk
@@ -81,7 +78,7 @@ if __name__ == '__main__':
 #     return render_template('coins.html', prediction_text='Model status is {}'.format(check_model_status()))
 
 
-# if __name__ == '__name__':
-#     app.run('0.0.0.0')
-# else:
-#     print("Sorry")
+if __name__ == '__name__':
+    app.run('0.0.0.0')
+else:
+    print("Sorry")
