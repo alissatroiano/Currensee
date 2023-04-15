@@ -15,7 +15,7 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
 
 # _BINANCE_INTEGRATION = "my_binance"
 # _AGGREGATED_TRADE_DATA_TABLE = "aggregated_trade_data"
