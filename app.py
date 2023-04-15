@@ -1,13 +1,13 @@
 from flask import Flask
 import mindsdb_sdk 
-from config import MINDSDB_CREDENTIALS
+from config import MINDSDB_EMAIL, MINDSDB_PASSWORD
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def index():
-    server = mindsdb_sdk.connect('https://cloud.mindsdb.com', **MINDSDB_CREDENTIALS)
+    server = mindsdb_sdk.connect('https://cloud.mindsdb.com', email=MINDSDB_EMAIL, password=MINDSDB_PASSWORD)
     # Use MindsDB server object here
     project = server.get_project('mindsdb')
     model = project.get_model('btcusd_predictor')

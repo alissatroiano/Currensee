@@ -1,4 +1,2 @@
-MINDSDB_CREDENTIALS = {
-    'email': 'alissatroianonyc@gmail.com',
-    'password': 'B@nana$5900'
-}
+MINDSDB_EMAIL = 'alissatroianonyc@gmail.com'
+MINDSDB_PASSWORD = 'B@nana$5900'

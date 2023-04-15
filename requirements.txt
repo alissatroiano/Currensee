@@ -2,7 +2,7 @@ lightwood >= 23.2.1.1, < 23.3.2.0
 gunicorn==20.1.0
 markupsafe == 2.0.1
 flask-restx >= 1.0.1, < 2.0.0
-flask >= 1.0, < 2.0x
+flask
 python-multipart >= 0.0.5
 pyparsing == 2.3.1
 cryptography>=35.0
@@ -25,7 +25,6 @@ checksumdir >= 1.2.0
 mindsdb-streams == 0.1.1
 duckdb == 0.4.0
 requests >= 2.0.0
-MindsDB==23.3.5.0
 mindsdb-evaluator==0.0.6
 mindsdb-sdk==1.0.1
 mysql-connector-python
