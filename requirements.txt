@@ -1,11 +1,10 @@
 lightwood >= 23.2.1.1, < 23.3.2.0
-gunicorn==20.1.0
-markupsafe == 2.0.1
+gunicorn
+markupsafe
 flask-restx >= 1.0.1, < 2.0.0
 flask
 mindsdb-sql >= 0.4.9, < 0.5.0
 requests >= 2.0.0
-mindsdb-sdk==1.0.1
+mindsdb-sdk
 mysql-connector-python
-Jinja2==2.11.3
-
+Jinja2

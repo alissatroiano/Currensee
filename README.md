@@ -165,7 +165,6 @@ The financial app is being developed using the following technologies:
     PREDICT close_price
     ORDER BY date
     WINDOW 10;
-
     ```
     5. Run the query and wait for model to finish training.
     6. Check model status using `SELECT` statement:
@@ -186,16 +185,6 @@ The financial app is being developed using the following technologies:
     
 ### Training MindsDB Models
 
-    1. Create a new model using the following code:
-    ```python
-    from mindsdb import Predictor
-    mdb = Predictor(name='btc_price')
-    mdb.learn(from_data='btc_price.csv', to_predict='price')
-    ```
-    2. Receive error message: `ModuleNotFoundError: No module named 'mindsdb'`
-    3. Install MindsDB using `pip install mindsdb`
-    4. Attempt to create a new model again
-    5. Receive error message: `ModuleNotFoundError: No module named 'mindsdb'`
 
 ### Application Tests
 1. Import MindsDB Test 1:
@@ -308,7 +297,6 @@ The financial app is being developed using the following technologies:
     print(dir(mdb)
 
 ## Credits
-
 - [Bootstrap](https://getbootstrap.com/docs/5.3/examples/) - Bootsrap's documentation was used for code snippets pertaining to grid structure and layout
 
 ### Code

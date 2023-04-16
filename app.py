@@ -78,7 +78,7 @@ def index():
 #     return render_template('coins.html', prediction_text='Model status is {}'.format(check_model_status()))
 
 
-if __name__ == '__name__':
+if __name__ == '__main__':
     app.run('0.0.0.0')
 else:
     print("Sorry")
