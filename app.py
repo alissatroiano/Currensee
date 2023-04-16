@@ -8,12 +8,6 @@ from forms import CoinForm
 app = Flask(__name__)
 app.config.from_object(Config)
 
-# Import secret key from environment variable
-# secret_key = os.environ.get("SECRET_KEY", "")
-print(Config.SECRET_KEY)
-# app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY_STR', 'your-secret-key')
-server = mindsdb_sdk.connect('https://cloud.mindsdb.com', email=MINDSDB_EMAIL, password=MINDSDB_PASSWORD)
-
 @app.route('/')
 def index():
     server = mindsdb_sdk.connect('https://cloud.mindsdb.com', email=MINDSDB_EMAIL, password=MINDSDB_PASSWORD)
