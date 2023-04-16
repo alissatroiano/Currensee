@@ -96,6 +96,22 @@ The following time-series models were created using [MindsDB]() and are responsi
     HORIZON 14;
 ```
 
+**Ethereum Model**
+
+The following SQL query was used to create the `ethusd_prediction_mod` model:
+
+```sql
+CREATE MODEL ethusd_prediction_mod
+FROM files (
+    SELECT * FROM test_data
+    WHERE ticker = 'ethusd'
+    )
+PREDICT close_price
+ORDER BY date
+WINDOW 3650
+HORIZON 14;
+```
+
 
 ### Advanced Features
 
