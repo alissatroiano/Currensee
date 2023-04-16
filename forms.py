@@ -3,5 +3,5 @@ from wtforms import SelectField, SubmitField
 from wtforms.validators import DataRequired
 
 class BitcoinForm(FlaskForm):
-    coin = SelectField('Coin', choices=[('BTC', 'Bitcoin'), ('ETH', 'Ethereum'), ('LTC', 'Litecoin')], validators=[DataRequired()])
+    coin = SelectField('Coin', choices=[('btcusd', 'Bitcoin'), ('ethusd', 'Ethereum'), ('ltcusd', 'Litecoin')], validators=[DataRequired()])
     submit = SubmitField('Get Prediction')
