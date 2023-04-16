@@ -45,24 +45,20 @@ User stories were created during the planning phase of this project and were use
 
 The following user stories were created for the advanced version (future release) of this app:
 
-- As an authenticated user, I want to be able to save my predictions so I can easily access them later.
-
-- As an authenticated user, I want to be able to view my saved predictions so I can easily access them. 
-
 ## Features
 ### Frontend Features
 
 The financial app aims to provide the following features:
 
-- **About**: Provides information about this application and how it was implemented ***(includes information about MindsDB and referenes the data used to make the predictions.)***
+- **Cover Page**: Provides title, subtitle & open source project information for users & other developers
 
 ![Screenshot]()
 
-- **Predictor Tool**: This feature lets the user choose from a list of coins then redirects them to a page (or pop-up modal) containing the coin's prediction data.
+- **Coins**: Provides an index page displaying coins currently supported by Currensee. ***This section is still in development.***
 
 ![Screenshot]()
 
-- **Navigation**: Gives users the ability to navigate the app from any page or section and includes external links (MindsDB, developer's GitHub, Slack, etc.)
+- **Navigation**: A fixed navigation loading from the base template (`base.html`) makes it easy to navigate the app from any page  users the ability to navigate the app from any page or section includes external links (MindsDB, developer's GitHub, Slack, etc.)
 
 ![Screenshot]()
 
