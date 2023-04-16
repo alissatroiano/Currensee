@@ -9,6 +9,7 @@
 - [Features](#features)
    - [Frontend Features](#frontend-features)
    - [Backend Features](#backend-features)
+   - [ML Features](#ml-features)
 - [Technologies](#technologies)
     - [Languages](#languages)
     - [Frameworks](#frameworks)
@@ -74,6 +75,27 @@ The financial app aims to provide the following features:
 - **Analysis**: The app performs various statistical and technical analysis on cryptocurrency data, such as calculating moving averages, relative strength index (RSI), and other indicators to provide insights into price trends and market behavior.
 
 - **Visualization**: The app uses data visualization techniques to present the forecasted and analyzed data in graphical form, such as line charts, bar charts, and candlestick charts, to make it easier for users to interpret and understand the information.
+
+
+## ML Features
+
+The following time-series models were created using [MindsDB]() and are responsible for the prediction data displayed on the front-end of this application:
+
+- **btcusd_prediction_mod**: This model was trained on historical data for the BTC/USD pair and is used to generate forecasts for future price trends.
+
+```sql
+    CREATE MODEL btcusd_prediction_mod
+    FROM files (
+        SELECT * FROM test_data
+        WHERE ticker = 'btcusd'
+        LIMIT 2000
+        )
+    PREDICT close_price
+    ORDER BY date
+    WINDOW 3650
+    HORIZON 14;
+```
+
 
 ### Advanced Features
 
@@ -212,6 +234,10 @@ The financial app is being developed using the following technologies:
     ORDER BY date
     WINDOW 1825
     HORIZON 1825;
+    ```
+    5. Run the query and wait for model to finish training.
+    6. Query the model and observe the following output:
+    ```markdown
     ```
 ### Application Tests
 1. Import MindsDB Test 1:
