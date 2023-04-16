@@ -1,8 +1,16 @@
 # Tests
+- [Creating Models](#creating-models)
+    - [Time Series Model Test 1 - Missing Window](#time-series-model-test-1---missing-window)
+    - [Time Series Model Test 2 - Missing Horizon](#time-series-model-test-2---missing-horizon)
+- [Training MindsDB Models](#training-mindsdb-models)
+    - [Time Series Error 1](#time-series-error-1)
+- [Using the MindsDB Python SDK](#using-the-mindsdb-python-sdk)
+    - [Import MindsDB Test 1](#import-mindsdb-test-1)
+    - [`import mindsdb` TypeError Test 1](#import-mindsdb-typeerror-test-1)
+    - [Querying Models with the Python SDK Test 1](#querying-models-with-the-python-sdk-test-1)
+    - [Querying MindsDB Models with the Python SDK Test 2](#querying-mindsdb-models-with-the-python-sdk-test-2)
 
-## Models
-
-## Creating MindsDB Models
+## Creating Models
 1. Time Series Model Test 1 - Missing Window:
     1. Visit `cloud.mindsdb.com/editor`
     2. Input the following code:
@@ -23,9 +31,12 @@
     WHERE name = "btcusd_model_1";
     ```
     5. Observe the following error:
+    ```markdown
     | NAME | ENGINE | PROJECT | VERSION | STATUS | ACCURACY | PREDICT | UPDATE_STATUS | MINDSDB_VERSION | ERROR | SELECT_DATA_QUERY | TRAINING_OPTIONS | CURRENT_TRAINING_PHASE | TOTAL_TRAINING_PHASES | TRAINING_PHASE_NAME | TAG | CREATED_AT |
     | ---- | ------ | ------- | ------- | ------ | -------- | ------- | ------------- | --------------- | ----- | ----------------- | ---------------- | ---------------------- | --------------------- | ------------------- | --- | ---------- |
     | btcusd_model_1 | lightwood | mindsdb | 1 | error | [NULL] | open_price | up_to_date | 23.4.3.2 | Exception: Missing mandatory timeseries setting: window, raised at: /usr/local/lib/python3.8/dist-packages/mindsdb/integrations/libs/ml_exec_base.py#135 | SELECT * FROM test_data | {'target': 'open_price', 'timeseries_settings': {'is_timeseries': True, 'order_by': 'date', 'group_by': ['ticker']}} | 1 | 5 | Generating problem definition | [NULL] | 2023-04-15 19:12:08.577797 |
+    ```
+
     6. Refactor code to include `WINDOW` parameter:
     ```sql
     CREATE MODEL btcusd_model_1
@@ -91,8 +102,7 @@
     ```
     8. Notice **acccuracy** is now higher with one specific target column
     9. Mark test, 'passed'.
-    
-### Training MindsDB Models
+## Training MindsDB Models
 1. Time Series Error 1:
     1. Visit `cloud.mindsdb.com/editor`
     2. Input the following code to run prediction query on `btcusd_predictor` model:
@@ -103,7 +113,7 @@
     ```
     4. Update `CREATE MODEL` query to include larger **WINDOW** and **HORIZON** paramaters (can train on up tp 5 years past/historical data, can predict up to 5 years into the future):
     ```sql
-    CREATE MODEL btcusd_predictions
+    CREATE MODEL btcusd_prediction_
     FROM files (
         SELECT * FROM test_data
         WHERE ticker = 'btcusd'
@@ -117,7 +127,7 @@
     6. Query the model and observe the following output:
     ```markdown
     ```
-### Application Tests
+## Using the MindsDB Python SDK
 1. Import MindsDB Test 1:
     1. Add mindsdb import statements to `app.py`
     2. Receive error message: `ModuleNotFoundError: No module named 'mindsdb'`
@@ -158,7 +168,8 @@
     ['__about__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__path__', '__spec__', '__version__']
     ```
 
-3. Python SDK Test 1:
+
+3. Querying Models with the Python SDK Test 1:
     1. Wirth `import mindsdb_sdk` at the top of `app.py`, add the following code:
     ```python
     mdb = mindsdb_sdk
@@ -205,7 +216,7 @@
    ['AdjustPredictor', 'Constant', 'Describe', 'Identifier', 'Join', 'List', 'Model', 'ModelVersion', 'Query', 'RetrainPredictor', 'Select', 'Star', 'Union', 'Update', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'annotations', 'dict_to_binary_op', 'parse_sql', 'pd', 'query_traversal']
     ```
 
-4. Querying MindsDB Models with the Python SDK
+4. Querying MindsDB Models with the Python SDK Test 2:
     1. Attempt to call a model in `app.py`
     ```python
     mindsdb_sdk.model = 'btcusdt_model_1'
@@ -219,10 +230,3 @@
     ```
     4. Mark test as 'pass' after determining proper way to call a model using the SDK. 
  
-5. Training MindsDB Models with the Python SDK
-    1. Attempt to train a model in `app.py`
-    ```python
-
-
-    mdb = mindsdb_sdk.connect()
-    print(dir(mdb)
