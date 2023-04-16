@@ -8,15 +8,14 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY_STR', 'your-secret-key')
 server = mindsdb_sdk.connect('https://cloud.mindsdb.com', email=MINDSDB_EMAIL, password=MINDSDB_PASSWORD)
 
-
 @app.route('/')
 def index():
     server = mindsdb_sdk.connect('https://cloud.mindsdb.com', email=MINDSDB_EMAIL, password=MINDSDB_PASSWORD)
     # Use MindsDB server object here
     project = server.get_project('mindsdb')
     model = project.get_model('btcusd_predictor')
-    return 'Connected to MindsDB server. The BTC model is: {}'.format(model.name)
-
+    return 'Connected to MindsDB server. The BTC model is: {}'.format(model.name)    
+    # run `flask run` command in terminal, then visit 127.0.0.1:5000 to test this function
 
 @app.route('/bitcoin', methods=['GET', 'POST'])
 def bitcoin():
@@ -35,6 +34,7 @@ def bitcoin():
             print(str(e))
             return render_template('500.html'), 500
     return render_template('bitcoin.html', form=form)
+# run `flask run``, then visit 127.0.0.1:5000/bitcoin/ to test this function
 
 if __name__ == '__main__':
     app.run('0.0.0.0')
