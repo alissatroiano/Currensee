@@ -30,7 +30,7 @@ This financial app is a data-driven application that provides forecasting and an
 ## Research & Planning
 ### User Stories
 
-User stories were created during the planning phase of this project and were used to help guide the wireframing process:
+User stories were created during the planning phase of this project and were used to help guide the wireframing process. The following user stories were created for the MVP version of this app:
 
 - As a user, I want the **‘About’** section to provide meaningful information about this software, so I can learn where the data is coming from and how the predictions are made. 
 
@@ -41,6 +41,12 @@ User stories were created during the planning phase of this project and were use
 - As a user, I want to view meaningful data insights & predictions based on my coin's historical data, so I can make informed decisions about my cryptocurrency(s).
 
 - As a user, I want to be able to view the website from my mobile device so I can check out coin predictions when I'm on the go.
+
+The following user stories were created for the advanced version (future release) of this app:
+
+- As an authenticated user, I want to be able to save my predictions so I can easily access them later.
+
+- As an authenticated user, I want to be able to view my saved predictions so I can easily access them. 
 
 ## Features
 ### Frontend Features
@@ -69,6 +75,9 @@ The financial app aims to provide the following features:
 
 - **Visualization**: The app uses data visualization techniques to present the forecasted and analyzed data in graphical form, such as line charts, bar charts, and candlestick charts, to make it easier for users to interpret and understand the information.
 
+### Advanced Features
+
+Be
 -
 ## Technologies
 The financial app is being developed using the following technologies:
@@ -184,8 +193,26 @@ The financial app is being developed using the following technologies:
     9. Mark test, 'passed'.
     
 ### Training MindsDB Models
-
-
+1. Time Series Error 1:
+    1. Visit `cloud.mindsdb.com/editor`
+    2. Input the following code to run prediction query on `btcusd_predictor` model:
+    ```sql
+    ```
+    3. Observe error message in output:
+    ```markdown
+    ```
+    4. Update `CREATE MODEL` query to include larger **WINDOW** and **HORIZON** paramaters (can train on up tp 5 years past/historical data, can predict up to 5 years into the future):
+    ```sql
+    CREATE MODEL btcusd_predictions
+    FROM files (
+        SELECT * FROM test_data
+        WHERE ticker = 'btcusd'
+        )
+    PREDICT close_price
+    ORDER BY date
+    WINDOW 1825
+    HORIZON 1825;
+    ```
 ### Application Tests
 1. Import MindsDB Test 1:
     1. Add mindsdb import statements to `app.py`
