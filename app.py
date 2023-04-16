@@ -27,7 +27,7 @@ def index():
 def bitcoin():
     form = CoinForm()
     if form.validate_on_submit():
-        # Use MindsDB server object here
+        # Use MindsDB server object he`re
         project = server.get_project('mindsdb')
         model = project.get_model('btcusd_prediction_mod')
         print(model)
@@ -36,6 +36,9 @@ def bitcoin():
     return render_template('bitcoin.html', form=form, query=None)
 # run `flask run``, then visit 127.0.0.1:5000/bitcoin/ to test this function
 
+
+# @app.route('/ethereum', methods=['GET', 'POST'])
+# def ethereum():
 #     form = CoinForm()
 #     if form.validate_on_submit():
 #         # Use MindsDB server object here
