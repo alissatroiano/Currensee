@@ -4,4 +4,14 @@ Pipfile.lock
 .DS_Store
 db.sqlite3
 .idea
+
+# Virtual Environemnts
 venv/
+env/
+currensee/
+.venv/
+
+# Passwords & Credentials
+config.py
+config/
+
