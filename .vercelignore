@@ -1,0 +1,22 @@
+/app
+Pipfile
+Pipfile.lock
+.DS_Store
+db.sqlite3
+.idea
+server.py
+functions/
+handlers/
+.github/
+
+# Virtual Environemnts
+venv/
+env/
+currensee/
+.venv/
+
+# Passwords & Credentials
+config.py
+config/
+
+
