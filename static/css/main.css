@@ -108,3 +108,11 @@ section.cover {
 main.container-fluid {
     padding: 0 0 0 0;
 }
+
+.open-source-text {
+    font-family: 'Martian Mono', monospace;
+    font-weight: 200;
+    font-size: 1rem;
+    margin-top: 50px;
+    color: var(--lighter);
+}

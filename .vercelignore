@@ -16,7 +16,6 @@ currensee/
 .venv/
 
 # Passwords & Credentials
-config.py
 config/
 
 
