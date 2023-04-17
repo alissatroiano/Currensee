@@ -6,8 +6,7 @@ from settings import MINDSDB_EMAIL, MINDSDB_PASSWORD
 from forms import CoinForm
 
 app = Flask(__name__)
-flask = Flask(__name__)
-print(flask.__version__)
+
 app.config.from_object(Config)
 
 @app.route('/')
