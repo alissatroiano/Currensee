@@ -35,28 +35,31 @@ h1 {
 
 /* Main Page Content */
 .title {
-    font-family: 'Martian Mono', monospace;
-    font-weight: 400;
-    letter-spacing: -6px;
+    font-family: 'Gruppo', cursive;
+    font-weight: 200;
+    
+    text-transform: uppercase;
+
 }
 
 h1>span.title-text {
     font-family: 'Gruppo', cursive;
     text-transform: uppercase;
     color: var(--light-blue);
-    font-size: larger;
     font-weight: 200;
     letter-spacing: -2px;
 }
 
-.lead {
+h2.lead {
     color: var(--lighter);
+    font-family: 'Gruppo', cursive;    
 }
 
 .small {
     color: var(--light);
     font-family: 'Gruppo', cursive;
-    font-weight: 600;
+    font-weight: 400;
+    font-size: 1.25rem;
 }
 
 span {
