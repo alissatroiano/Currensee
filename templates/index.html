@@ -5,34 +5,15 @@
 <section class="cover">
     <div class="row d-flex align-items-center mt-5 pt-5">
       <div class="col-12 text-center align-items-center">
-       <div class="my-5">
-        </div>
-        <h1 class="display-1 lh-1 my-3 title">Curren<span>$ee</span></h1>
-        <h2 class="lead">Cryptocurrency Prediction Tool</h2>
-        <p class="small my-4">Powered by MindsDB </p>
-        <div class="d-grid gap-2 d-md-flex justify-content-center mt-3 pt-3">
-          <button type="button" class="btn btn-light btn-lg px-4 me-md-2">Get Started</button>
-          <button type="button" class="btn btn-outline-secondary btn-lg px-4">About</button>
+        <h1 class="display-1 title mt-5 pt-5">Curren<span class="title-text">$ee</span>
+        </h1>
+        <h2 class="lead my-3 my-md-4">AI Blockchain Tool</h2>
+        <p class="small my-4 pt-3 pt-md-5">Powered by MindsDB </p>
+        <div class="d-grid d-md-flex justify-content-center mt-3 pt-3">
+          <button type="button" class="btn btn-light btn- pt-5lg px-4 me-md-2">COINS</button>
         </div>
       </div>
     </div>
   </section>
-
-  <div class="container-fluid">
-    <div class="row">
-      {% for database in databases %}
-      <div class="col-12">
-        <div class="card my-5">
-          <div class="card-body">
-            <h5 class="card-title">{{ database.name }}</h5>
-            <p class="card-text">{{ database.description }}</p>
-            <a href="{{ url_for('database', database_id=database.id) }}" class="btn btn-primary">View</a>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-
-    </div>
-
 
 {% endblock %}

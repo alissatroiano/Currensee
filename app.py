@@ -9,6 +9,7 @@ app = Flask(__name__)
 app.config.from_object(Config)
 
 @app.route('/')
+@app.route('/index')
 def index():
     server = mindsdb_sdk.connect('https://cloud.mindsdb.com', email=MINDSDB_EMAIL, password=MINDSDB_PASSWORD)
     # Use MindsDB server object here
