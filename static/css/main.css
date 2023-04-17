@@ -8,7 +8,12 @@
     --primary-2: #240090;
     --primary-3: #190061;
     --navy: #000C66;
-    --light-blue: #7EC8E3;
+    --light-blue: #41b7d1;
+    --mdb-green-1: #00a587;
+    --mdb-green-2: #38e2c3;
+    --mdb-green-3: #E5F7F4;
+    --mdb-blue: #084ee5;
+    --mdb-blue-2: #F2F6FE;
     --secondary: #dc3257;
     --secondary-2: #dc3257;
     --lightest: #fafafa;
@@ -32,7 +37,7 @@ h1 {
 .title {
     font-family: 'Martian Mono', monospace;
     font-weight: 400;
-    letter-spacing: -3px;
+    letter-spacing: -6px;
 }
 
 h1>span.title-text {
@@ -41,6 +46,7 @@ h1>span.title-text {
     color: var(--light-blue);
     font-size: larger;
     font-weight: 200;
+    letter-spacing: -2px;
 }
 
 .lead {
@@ -49,6 +55,8 @@ h1>span.title-text {
 
 .small {
     color: var(--light);
+    font-family: 'Gruppo', cursive;
+    font-weight: 600;
 }
 
 span {
@@ -78,7 +86,7 @@ span {
 
 /* Home/Landing Page */
 section.cover {
-    background: linear-gradient(#0200118e, #02000fbe), url('../images/particle_wave.jpeg') no-repeat center center fixed; 
+    background: linear-gradient(#020011b6, #05011cc1), url('../images/bluebottom.jpg') no-repeat center center fixed; 
     /* background-color: var(--primary-3); */
     max-width: 100%;
     background-size: cover;
