@@ -8,7 +8,6 @@ name: Update Crypto Prices
 #   schedule:
 #     - cron: "0 23 * * *"
 
-
 jobs:
   update_crypto_prices:
     runs-on: ubuntu-latest
