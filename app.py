@@ -36,4 +36,5 @@ def bitcoin():
 # run `flask run``, then visit 127.0.0.1:5000/bitcoin/ to test this function
 
 if __name__ == '__main__':
-    app.run()
+    # set debug to true
+    app.run(debug=True)
