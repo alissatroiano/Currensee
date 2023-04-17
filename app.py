@@ -1,11 +1,13 @@
 import os
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template
 import mindsdb_sdk 
 from config import Config
 from settings import MINDSDB_EMAIL, MINDSDB_PASSWORD
 from forms import CoinForm
 
 app = Flask(__name__)
+flask = Flask(__name__)
+print(flask.__version__)
 app.config.from_object(Config)
 
 @app.route('/')
@@ -17,6 +19,7 @@ def index():
     model = project.get_model('btcusd_predictor')
     return render_template('index.html', model=model)
     # run `flask run` command in terminal, then visit 127.0.0.1:5000 to test this function
+    
 
 @app.route('/bitcoin', methods=['GET', 'POST'])
 def bitcoin():
