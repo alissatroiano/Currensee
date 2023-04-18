@@ -1,1 +1,15 @@
-{"projectId":"prj_xCrs6xRemnsBRDYBHf2jYx5QnJaw","orgId":"Wj8BHmWodBqdLoZ1EBrlHhP8"}
+{
+  "projectId": "prj_xCrs6xRemnsBRDYBHf2jYx5QnJaw",
+  "orgId": "Wj8BHmWodBqdLoZ1EBrlHhP8",
+  "settings": {
+    "createdAt": 1681594154590,
+    "framework": null,
+    "devCommand": "",
+    "installCommand": "pip install -r requirements.txt",
+    "buildCommand": null,
+    "outputDirectory": null,
+    "rootDirectory": null,
+    "directoryListing": false,
+    "nodeVersion": "18.x"
+  }
+}
