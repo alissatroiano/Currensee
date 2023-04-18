@@ -43,8 +43,7 @@ def bitcoin():
     print(model)
     query = project.query('SELECT close_price FROM mindsdb.btcusd_prediction_mod WHERE date="2019-01-05"');
 
-    return 'Your prediction data for Bitcoin is: ' + str(query.fetch())
-
+    return render_template('bitcoin.html', query=query)
 # run `flask run``, then visit 127.0.0.1:5000/bitcoin/ to test this function
 
 
