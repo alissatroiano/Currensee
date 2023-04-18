@@ -125,3 +125,13 @@ main.container-fluid {
     margin-top: 50px;
     color: var(--lighter);
 }
+
+/* Coins */
+.card#bitcoin {
+    background-image: url('../images/bitcoin.svg');
+    background-color: #fafafa;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 50vh;
+}
