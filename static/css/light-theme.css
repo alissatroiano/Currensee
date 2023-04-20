@@ -9,7 +9,6 @@
 
 :root {
     --dark: #01041f;
-    --darker: #282828;
     --primary: #0000FF;
     --primary-1: #3500d3;
     --primary-2: #240090;
@@ -148,7 +147,7 @@ main.container-fluid {
 
 .coins {
     min-height: 100vh;
-    background-color: var(--dark);
+    background-color: var(--trans-light);
     z-index: -1000;
   }
 
@@ -157,7 +156,7 @@ main.container-fluid {
   }
 
 .card {
-    background: var(--trans-primary-3);
+    background: rgba(241, 238, 238, 0.798);
     border-radius: 6px;
     justify-content: center;
     align-items: center;
@@ -165,14 +164,15 @@ main.container-fluid {
     color: rgb(88 199 250 / 0%);
     font-family: 'Martian Mono', monospace;
     margin: 0 5px;
-    min-height: 40vh;
-  }
+    min-height: 25vh;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
   
-
 
 .card:hover {
     color: rgb(88 199 250 / 100%);
     transition: color 1s;
+    border: none;
   }
   .card:hover:before, .card:hover:after {
     animation: none;
@@ -201,7 +201,7 @@ main.container-fluid {
     top: calc(var(--card-height) / 6);
     left: 0;
     right: 0;
-    z-index: 1;
+    z-index: -1;
     height: 100%;
     width: 100%;
     margin: 0 auto;

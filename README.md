@@ -102,7 +102,7 @@ FROM files (
     )
 PREDICT close_price
 ORDER BY date
-WINDOW 3650
+WINDOW 3650N
 HORIZON 14;
 ```
 
