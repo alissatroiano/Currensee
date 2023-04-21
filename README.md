@@ -145,5 +145,7 @@ The financial app is being developed using the following technologies:
 - [fontpair](https://www.fontpair.co/all) - This article was used to view trending font pairings. The font set used for this project was found in this article
 
 ### Media
+
+- [Iconduck](https://iconduck.com/icons/82936/bitcoin-cash-cryptocurrency) = Bitcoin, Etherium and Doge Coin icon set was downloaded from this site.
 ### Other
 - [Kevsbest's article, "Top 5 AI Crypto Prediction Services Right Now"](https://kevsbest.com/ai-crypto-prediction-services-right-now/) was referenced while conducting competitor research.
