@@ -1,37 +1,30 @@
-{% extends "bootstrap/base.html" %}
-
-
+{% extends "base.html" %}
 {% block content %}
 
 <section class="coins" id="coins">
 
-  <div class="container-fluid px-4 py-5" id="custom-cards">
-    <h2 class="pb-2 border-bottom">Coins</h2>
-
-    <div class="row d-flex align-items-center align-items-stretch g-4 p-5">
-      <div class="col-xs-8 col-sm-4">
-        <div class="card h-100 border-0" id="bitcoin"
-         style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/35/Bitcoin_Network_Blue_4k.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center;">
-         <!-- <a class="stretched-link" href="{{ url_for ('bitcoin') }}"></a> -->
-          <!-- <img src="static/images/bitcoin.svg" alt="" class="src"> -->
+  <div class="container p-3 p-sm-4 p-lg-5">
+  <div class="row">
+    <div class="col-12 text-start">
+      <h2 class="pb-2 border-bottom">Coins</h2>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center my-0 mx-auto p-5 g-4 coins">
+      <div class="col-12 col-sm-6 coin-col">
+        <div class="card h-100" id="bitcoin">
+         <a class="stretched-link" href="{{ url_for ('bitcoin') }}"></a>
+          <img src="static/images/bitcoin.svg" alt="" class="src">
         </div>
-        {% import "bootstrap/wtf.html" as wtf %}
-        {% from "bootstrap/form.html" import render_field %}
-
-        <form method="POST" action="{{ url_for('bitcoin') }}">
-          {{ wtf.form_field(form.coin) }}
-          {{ wtf.form_field(form.input) }}
-          {{ wtf.form_field(form.submit) }}
+        <!-- <form method="POST" action="{{ url_for('bitcoin') }}">
+          {{ form.csrf_token }}
           <div class="mb-3">
             <label for="target" class="form-label">Target variable</label>
-            {{ wtf.render_field(form.target, class="form-select") }}
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+        </form> -->
       </div>
-
-      <div class="col-xs-8 col-sm-4">
-        <div class="card h-100" id="etherium">
+      <div class="col-12 col-sm-6">
+        <div class="card h-100" id="ethereum">
           <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
             <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Ethereum_logo_translucent.svg"
               class="img-fluid">
@@ -39,16 +32,8 @@
           </div>
         </div>
       </div>
-
-      <div class="col-xs-8 col-sm-4">
-        <div class="card h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
-          <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
-          <!-- <img src="https://cdn.pixabay.com/photo/2021/05/12/20/18/dogecoin-6249162_1280.png" class="img-fluid">     -->
-          <img src="https://www.creativefabrica.com/wp-content/uploads/2021/08/23/cryptocurrency-dogecoin-icons-blue-Graphics-16214748-1.png" class="img-fluid">     
-          </div>
-        </div>
-      </div>
     </div>
+    
   </div>
 
 </section>

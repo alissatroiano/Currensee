@@ -15,14 +15,18 @@
   <!--Load Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css"
     integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" crossorigin="anonymous">
+  {% block styles %}
   <!--Custom Stylesheet-->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" type="text/css">
+  <!-- Boostrap-->
+  {{ bootstrap.load_css() }}
+  {% endblock %}
+
   {% block title %}
   <title>Currensee</title>
   {% endblock %}
+
 </head>
-{% block styles %}
-{% endblock %}
 
 <body>
   <!--Navbar-->
@@ -75,7 +79,7 @@
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
     {% from 'bootstrap5/form.html' import render_field, bs5_render_form %}
-
+    {{ bootstrap.load_js() }}
   {% endblock %}
 
 </body>
