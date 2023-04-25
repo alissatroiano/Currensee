@@ -151,20 +151,26 @@ section.coins {
   text-align: center;
   color: rgb(88 199 250 / 0%);
   font-family: 'Martian Mono', monospace;
-  cursor: pointer;
   filter: grayscale(60%);
   border-radius: 10%;
   border-color: transparent;
   background-color: #e3e9edb1;
-
 }
+/* 
+form#bitcoinForm {
+  display: none;
+}
+ */
 
 .card:hover {
   filter: grayscale(0%);
   color: var(--darker);
   background-color: #eff1f2de;
-
   transition: color 1s;
+}
+
+#bitcoinForm:hover {
+  display: block;
 }
 
 .card:hover:before, .card:hover:after {
