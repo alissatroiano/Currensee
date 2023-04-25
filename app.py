@@ -29,13 +29,11 @@ def index():
 @app.route('/coins', methods=['GET', 'POST'])
 def coins():
     form = CoinForm()
-    if form.validate_on_submit():
         # Use MindsDB server object he`re
-        project = server.get_project('mindsdb')
-        model = project.get_model('btcusd_prediction_mod')
-        print(model)
-        query = project.query('SELECT close_price FROM mindsdb.btcusd_prediction_mod WHERE date="2019-01-05"');
-        return 'Your prediction data for Bitcoin is: ' + str(query.fetch())
+    project = server.get_project('mindsdb')
+    model = project.get_model('btcusd_prediction_mod')
+    print(model)
+    query = project.query('SELECT close_price FROM mindsdb.btcusd_prediction_mod WHERE date="2019-01-05"')
     return render_template('coins.html', form=form, query=None)
 
 @app.route('/bitcoin', methods=['GET', 'POST'])
@@ -59,7 +57,7 @@ def ethereum():
     """
     project = server.get_project('mindsdb')
     model = project.get_model('ethereum_predictions')
-    query = project.query('SELECT * FROM ethereum_predictions as EP JOIN files.Ethereum as E WHERE E.Date > "current_timestamp" LIMIT 7;')
+    query = project.query('SELECT * FROM ethereum_predictions as EP JOIN files.Ethereum as E WHERE E.Date > "current_timestamp" LIMIT 1;')
     return render_template('ethereum.html', query=query, model=model)
 
 
