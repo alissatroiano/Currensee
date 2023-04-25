@@ -7,13 +7,15 @@
   <div class="row">
     <div class="col-12 text-start">
       <h2 class="pb-2 border-bottom">Coins</h2>
+      <p class="subheading">Choose a coin to view predictions from our MindsDB machine-learning models</p>
     </div>
   </div>
-  <div class="row d-flex justify-content-center my-0 mx-auto p-5 g-4 coins">
+  <div class="row d-flex justify-content-center my-0 mx-auto p-5 g-4">
       <div class="col-12 col-sm-6 coin-col">
         <div class="card h-100" id="bitcoin">
          <a class="stretched-link" href="{{ url_for ('bitcoin') }}"></a>
-          <img src="static/images/bitcoin.svg" alt="" class="src">
+          <img src="../static/images/bitcoin-logo.png" alt="Bitcoin logo" class="img-fluid">
+          <h2>Bitcoin</h2>
         </div>
         <!-- <form method="POST" action="{{ url_for('bitcoin') }}">
           {{ form.csrf_token }}
@@ -25,7 +27,7 @@
       </div>
       <div class="col-12 col-sm-6">
         <div class="card h-100" id="ethereum">
-          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+          <div class="d-flex flex-column p-5 pb-3">
             <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Ethereum_logo_translucent.svg"
               class="img-fluid">
             <h2>Etherium</h2>

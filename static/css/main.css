@@ -11,11 +11,11 @@
   --darker: #282828;
   --grey: #282828;
   --light-grey: #b5b7ba;
-  --primary: #0000FF;
   --primary-1: #3500d3;
   --primary-2: #240090;
   --primary-3: #190061;
   --navy: #000C66;
+  --bg: #494880;
   --light-blue: #41b7d1;
   --mdb-green-1: #00a587;
   --mdb-green-2: #38e2c3;
@@ -136,9 +136,11 @@ main.container-fluid {
 }
 
 /* Coins */
-.coins {
-  min-height: 100vh;
-  background-color: var(--light-grey);
+
+section.coins {
+  background-color: #c2b8b8d3;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .card {
@@ -152,14 +154,17 @@ main.container-fluid {
   color: rgb(88 199 250 / 0%);
   font-family: 'Martian Mono', monospace;
   border: none;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  /* box-shadow: rgba(136, 165, 191, 0.48) 8px 4px 18px 0px, rgba(255, 255, 255, 0.596) -8px -4px 18px 0px; */
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   cursor: pointer;
-  filter: grayscale(100%);
+  filter: grayscale(60%);
+  border-radius: 25%;
+  border: transparent;
 }
 
 .card:hover {
   filter: grayscale(0%);
-  color: var(--primary);
+  color: var(--darker);
   transition: color 1s;
 }
 
@@ -172,7 +177,6 @@ main.container-fluid {
   content: "";
   width: 104%;
   height: 102%;
-  border-radius: 8px;
   background-color: linear-gradient(var(--rotate), var(--light-blue), var(--mdb-blue) 43%, var(--light-blue));
   position: absolute;
   top: -1%;
@@ -207,21 +211,15 @@ main.container-fluid {
   }
 }
 
-div#ethereum {
-background-color: #e3e9ed5e;
-filter: grayscale(1);
+#ethereum, #bitcoin {
+background-color: #e3e9edb1;
+border: transparent;
 }
 
-div#ethereum:hover {
-  background-color: #e3e9ed5e;
-  filter: grayscale(0);
+#bitcoin:hover,
+#ethereum:hover {
+  background-color: #eff1f2de;
+  border: transparent;
+
   }
   
-
-a {
-  color: #212534;
-  text-decoration: none;
-  font-family: sans-serif;
-  font-weight: bold;
-  margin-top: 2rem;
-}
