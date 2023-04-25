@@ -4,11 +4,8 @@ import mindsdb_sdk
 from config import Config
 from settings import MINDSDB_EMAIL, MINDSDB_PASSWORD
 from forms import CoinForm
-from flask_bootstrap import Bootstrap5 as Bootstrap
-
 
 app = Flask(__name__)
-bootstrap = Bootstrap(app)
 
 app.config.from_object(Config)
 
@@ -16,15 +13,9 @@ server = mindsdb_sdk.connect('https://cloud.mindsdb.com', email=MINDSDB_EMAIL, p
 
 
 @app.route('/')
-# @app.route('/index')
 def index():
-    server = mindsdb_sdk.connect('https://cloud.mindsdb.com', email=MINDSDB_EMAIL, password=MINDSDB_PASSWORD)
-    # Use MindsDB server object here
-    project = server.get_project('mindsdb')
-    model = project.get_model('btcusd_predictor')
-    
-    return render_template('index.html', title='Home', model=model)
-    # run `flask run` command in terminal, then visit 127.0.0.1:5000 to test this function
+    return render_template('index.html', title='Home')
+
 
 @app.route('/coins', methods=['GET', 'POST'])
 def coins():

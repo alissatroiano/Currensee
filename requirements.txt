@@ -12,5 +12,3 @@ Flask-Compress==1.13
 Flask-WTF==1.1.1
 Flask-PyMongo==2.3.0
 pymongo==3.11.2
-flask_bootstrap5
-flask_bootstrap

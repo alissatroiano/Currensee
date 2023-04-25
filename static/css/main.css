@@ -151,18 +151,19 @@ section.coins {
   text-align: center;
   color: rgb(88 199 250 / 0%);
   font-family: 'Martian Mono', monospace;
-  border: none;
-  /* box-shadow: rgba(136, 165, 191, 0.48) 8px 4px 18px 0px, rgba(255, 255, 255, 0.596) -8px -4px 18px 0px; */
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   cursor: pointer;
   filter: grayscale(60%);
-  border-radius: 25%;
-  border: transparent;
+  border-radius: 10%;
+  border-color: transparent;
+  background-color: #e3e9edb1;
+
 }
 
 .card:hover {
   filter: grayscale(0%);
   color: var(--darker);
+  background-color: #eff1f2de;
+
   transition: color 1s;
 }
 
@@ -209,17 +210,7 @@ section.coins {
   }
 }
 
-#ethereum, #bitcoin {
-background-color: #e3e9edb1;
-border: transparent;
-}
 
-#bitcoin:hover,
-#ethereum:hover {
-  background-color: #eff1f2de;
-  border: transparent;
-
-  }
   
 h2.title {
     font-family: 'Inter', sans-serif;

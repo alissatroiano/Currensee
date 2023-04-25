@@ -19,7 +19,6 @@
   <!--Custom Stylesheet-->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" type="text/css">
   <!-- Boostrap-->
-  {{ bootstrap.load_css() }}
   {% endblock %}
 
   {% block title %}
@@ -66,8 +65,6 @@
       </div>
     </div>
   </nav>
-  {% from 'bootstrap5/form.html' import render_field, bs5_render_form %}
-
 
     <main class="container-fluid">
       {% block content %}{% endblock %}
