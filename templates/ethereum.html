@@ -1,30 +1,38 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-6 offset-md-3">
-            <form method="POST" action="/bitcoin">
-                {{ form.csrf_token }}
-                <div class="form-group">
-                    {{ form.coin.label }}
-                    {{ form.coin(class='form-control') }}
-                    {% if form.coin.errors %}
-                    <div class="alert alert-danger">
-                        {% for error in form.coin.errors %}
-                        <span>{{ error }}</span>
-                    {% endfor %}
-                    </div>
-                    {% endif %}
-                    {{ form.submit(class='btn btn-primary btn-lg btn-block') }}
-                </div>
-            </form>
-        </div>
-    </div>
-    <div class="row">
-<!-- render the bitcoin method query results here-->    
-    <div class="col-12">
 
+<div class="container">
+    <div class="row p-5 mt-5">
+        <div class="col-12">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Open</th>
+                        <th>High</th>
+                        <th>Low</th>
+                        <th>Close</th>
+                        <th>Adj Close</th>
+                        <th>Volume</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in query.fetch() %}
+                    <tr>
+                        <td>{{ row['Date'] }}</td>
+                        <td>{{ row['Open'] }}</td>
+                        <td>{{ row['High'] }}</td>
+                        <td>{{ row['Low'] }}</td>
+                        <td>{{ row['Close'] }}</td>
+                        <td>{{ row['Adj Close'] }}</td>
+                        <td>{{ row['Volume'] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
+
+
 {% endblock %}

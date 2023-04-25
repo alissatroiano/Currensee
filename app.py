@@ -16,7 +16,7 @@ server = mindsdb_sdk.connect('https://cloud.mindsdb.com', email=MINDSDB_EMAIL, p
 
 
 @app.route('/')
-@app.route('/index')
+# @app.route('/index')
 def index():
     server = mindsdb_sdk.connect('https://cloud.mindsdb.com', email=MINDSDB_EMAIL, password=MINDSDB_PASSWORD)
     # Use MindsDB server object here
@@ -38,7 +38,6 @@ def coins():
         return 'Your prediction data for Bitcoin is: ' + str(query.fetch())
     return render_template('coins.html', form=form, query=None)
 
-
 @app.route('/bitcoin', methods=['GET', 'POST'])
 def bitcoin():
     """
@@ -48,10 +47,20 @@ def bitcoin():
     model = project.get_model('btcusd_prediction_mod')
     print(model)
     query = project.query('SELECT close_price FROM mindsdb.btcusd_prediction_mod WHERE date="2019-01-05"');
+    # result = model.query.with_entities('close_price'.column_name).fetch()
 
     return render_template('bitcoin.html', query=query)
 # run `flask run``, then visit 127.0.0.1:5000/bitcoin/ to test this function
 
+@app.route('/ethereum', methods=['GET', 'POST'])
+def ethereum():
+    """
+    Method to return ethereum prediction data when a user clicks the ethereum card on coins.html
+    """
+    project = server.get_project('mindsdb')
+    model = project.get_model('ethereum_predictions')
+    query = project.query('SELECT * FROM ethereum_predictions as EP JOIN files.Ethereum as E WHERE E.Date > "current_timestamp" LIMIT 7;')
+    return render_template('ethereum.html', query=query, model=model)
 
 
 if __name__ == '__main__':
