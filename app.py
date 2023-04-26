@@ -5,14 +5,14 @@ import mindsdb_sdk
 from config import Config
 from settings import MINDSDB_EMAIL, MINDSDB_PASSWORD
 from forms import CoinForm
-# context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
-# context.load_cert_chain('server.crt', 'server.key')
 
 app = Flask(__name__)
 
 app.config.from_object(Config)
 
 server = mindsdb_sdk.connect('https://cloud.mindsdb.com', email=MINDSDB_EMAIL, password=MINDSDB_PASSWORD)
+import mindsdb_sdk
+
 
 @app.route('/')
 def index():
@@ -21,7 +21,21 @@ def index():
 
 @app.route('/coins')
 def coins():
-    return render_template('coins.html', title='Coins')
+    project = server.get_project('mindsdb')
+    # database = server.get_database('files')
+    model = project.get_model('btcusd_prediction_mod')
+    view = project.get_view('eth_view')
+    df = view.fetch()
+    print(df)
+    # print(model)
+    # table = database.get_table('test_data')
+    # test_query = database.query('SELECT * FROM test_data LIMIT 1')
+    # print(test_query.fetch())
+
+    # query = database.query('SELECT close_price FROM mindsdb.btcusd_prediction_mod WHERE DATE="2023-04-30"')
+
+
+    return render_template('coins.html', title='Coins', model=model, query=None, view=view, df=df)
 
 
 @app.route('/bitcoin', methods=['GET', 'POST'])
@@ -29,17 +43,8 @@ def bitcoin():
     """
     Method to return bitcoin prediction data when a user clicks the bitcoin card on coins.html
     """
-    # if request.method == 'POST':
-    # print(server)
-    # databases = server.list_databases()
-    # print(databases)
-    # print(project)
-    # model = project.get_model('btcusd_prediction_mod')
-    # print(model)
-    # query = project.query('SELECT close_price FROM mindsdb.btcusd_prediction_mod WHERE date="2019-04-25"')
-    # print(str(query.fetch()))
-    # result = model.query.with_entities('close_price'.column_name).fetch()
     return render_template('bitcoin.html')
+
 
 @app.route('/ethereum', methods=['GET', 'POST'])
 def ethereum():
