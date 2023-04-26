@@ -45,7 +45,7 @@ h1 {
 
 /* Main Page Content */
 .title {
-  font-family: 'Inter', sans-serif;
+  font-family: 'gruppo', cursive;
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -54,7 +54,7 @@ h1>span.title-text {
   font-family: 'Gruppo', cursive;
   text-transform: uppercase;
   color: var(--light-blue);
-  font-weight: 200;
+  font-weight: 700;
   letter-spacing: -2px;
 }
 
@@ -102,7 +102,7 @@ section.cover {
   background: linear-gradient(#020718c8, #071c2c89, #02051fc9), url('../images/bg1.jpg') no-repeat center center fixed;
   background-size: cover;
   max-width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
 }
 
