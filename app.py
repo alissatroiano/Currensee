@@ -1,9 +1,12 @@
 import os
+import ssl
 from flask import Flask, render_template
 import mindsdb_sdk 
 from config import Config
 from settings import MINDSDB_EMAIL, MINDSDB_PASSWORD
 from forms import CoinForm
+context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+context.load_cert_chain('server.crt', 'server.key')
 
 app = Flask(__name__)
 
@@ -59,4 +62,4 @@ def ethereum():
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=8000, threaded=True)
+   app.run('0.0.0.0', port=5000, ssl_context=context)

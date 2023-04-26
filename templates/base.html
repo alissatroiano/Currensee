@@ -28,9 +28,9 @@
 </head>
 
 <body>
-  <!--Navbar-->
+  <!--Navbar--> 
   <nav class="navbar navbar-expand-lg navbar-dark bg-main">
-    <div class="container">
+    <div class="container-fluid">
       <a class="navbar-brand" href="{{ url_for ('index') }}">curren<span class="title-text">$ee</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -39,22 +39,27 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
+          <li class="nav-item mx-md-3">
             <a class="nav-link active" aria-current="page" href="{{ url_for ('index') }}">Home</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item mx-md-3">
             <a class="nav-link" href="{{ url_for ('coins') }}">Coins</a>
           </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item mx-md-3">
+            <a class="nav-link" href="https://github.com/alissatroiano/Currensee/blob/master/README.md" target="_blank">How it Works</a>
+          </li>
+          <li class="nav-item mx-md-3 dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Contribute
+              Community
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#"><i class="fab fa-github"></i> GitHub</a></li>
-              <li><a class="dropdown-item" href="#">MindsDB</a></li>
-              <li><a class="dropdown-item" href="#">MindsDB GitHub</a></li>
-              <li><a class="dropdown-item" href="#">MindsDB Slack</a></li>
+              <li><a class="dropdown-item" href="https://mindsdbcommunity.slack.com/join/shared_invite/zt-o8mrmx3l-5ai~5H66s6wlxFfBMVI6wQ#/shared-invite/email" target="_blank">
+                <i class="fab fa-slack"></i> MindsDB</a></li>
+              <li><a class="dropdown-item" href="#"><i class="fab fa-discord"></i>  MindsDB</a></li>
              </ul>
+          </li>
+          <li class="nav-item me-3">
+            <a class="nav-link" href="https://github.com/alissatroiano/Currensee" target="_blank">Contribute</a>
           </li>
         </ul>
       </div>

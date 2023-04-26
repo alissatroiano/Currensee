@@ -88,30 +88,30 @@ span {
 }
 
 .bg-main {
-  background-color: #020718;
+    background-color: #030620de
 }
 
-/* Navbar */
+/* ***************** Navbar */
 .navbar-brand,
 a.nav-link {
   font-family: 'gruppo', cursive;
 }
 
-/* Cover/Landing Page */
+/* *************** Cover/Landing Page */
 section.cover {
-  background: linear-gradient(#0207189c, #02051fc9), url('../images/bg1.jpg') no-repeat center center fixed;
+  background: linear-gradient(#020718c8, #071c2c89, #02051fc9), url('../images/bg1.jpg') no-repeat center center fixed;
   background-size: cover;
   max-width: 100%;
   height: 100vh;
   overflow: hidden;
 }
 
-.image-box {
-  box-shadow: inset 0 0 0 100vw rgba(0, 0, 0, 0.5);
-}
-
-.svg {
-  color: var(--light-blue);
+a.mdb-cta {
+  color: var(--mdb-green-1);
+  font-weight: 600;
+  text-decoration: underline;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
 }
 
 main.container-fluid {
@@ -137,8 +137,7 @@ main.container-fluid {
 /* -------------------- Coins */
 section.coins {
   background-color: var(--dark);
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
 }
 
 .card {
@@ -229,6 +228,7 @@ h2.title {
 section.bitcoin {
   background-color: var(--dark);
   min-height: 100vh;
+  overflow: hidden;
 }
 
 
