@@ -17,3 +17,7 @@ virtualenv/
 # Passwords & Credentials
 settings.py
 .vercel
+server.crt
+server.csr
+server.key
+server.key.org

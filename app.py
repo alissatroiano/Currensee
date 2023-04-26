@@ -30,16 +30,15 @@ def bitcoin():
     Method to return bitcoin prediction data when a user clicks the bitcoin card on coins.html
     """
     # if request.method == 'POST':
-    #     server = mindsdb_sdk.connect('https://cloud.mindsdb.com', email=MINDSDB_EMAIL, password=MINDSDB_PASSWORD)
-
-    #     databases = server.list_databases()
-    #     print(databases)
+    # print(server)
+    # databases = server.list_databases()
+    # print(databases)
+    # print(project)
     # model = project.get_model('btcusd_prediction_mod')
     # print(model)
     # query = project.query('SELECT close_price FROM mindsdb.btcusd_prediction_mod WHERE date="2019-04-25"')
     # print(str(query.fetch()))
     # result = model.query.with_entities('close_price'.column_name).fetch()
-
     return render_template('bitcoin.html')
 
 @app.route('/ethereum', methods=['GET', 'POST'])
@@ -56,4 +55,4 @@ def ethereum():
 
 
 if __name__ == '__main__':
-   app.run('0.0.0.0', port=5000)
+    app.run()
