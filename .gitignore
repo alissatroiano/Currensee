@@ -15,7 +15,5 @@ currensee/
 virtualenv/
 
 # Passwords & Credentials
-config.py
-config/
-
+settings.py
 .vercel
