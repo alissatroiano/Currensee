@@ -5,6 +5,8 @@ import mindsdb_sdk
 from config import Config
 from settings import MINDSDB_EMAIL, MINDSDB_PASSWORD
 from forms import CoinForm
+import pandas as pd
+
 
 app = Flask(__name__)
 
@@ -23,19 +25,16 @@ def index():
 def coins():
     project = server.get_project('mindsdb')
     # database = server.get_database('files')
-    model = project.get_model('btcusd_prediction_mod')
-    view = project.get_view('eth_view')
-    df = view.fetch()
-    print(df)
-    # print(model)
-    # table = database.get_table('test_data')
-    # test_query = database.query('SELECT * FROM test_data LIMIT 1')
-    # print(test_query.fetch())
-
-    # query = database.query('SELECT close_price FROM mindsdb.btcusd_prediction_mod WHERE DATE="2023-04-30"')
+    btc_model = project.get_model('btcusd_prediction_mod')
+    bit_query = project.query('SELECT close_price FROM btcusd_prediction_mod WHERE Date = "2023-04-30";')
+    # database = server.get_database('files')
+    eth_model = project.get_model('ethereum_predictions')
+    # view = project.get_view('eth_view')
+    # df = view.fetch()
+    # btc_table = df.head(20).to_html(index=False)
 
 
-    return render_template('coins.html', title='Coins', model=model, query=None, view=view, df=df)
+    return render_template('coins.html', title='Coins', bit_query=bit_query)
 
 
 @app.route('/bitcoin', methods=['GET', 'POST'])
@@ -43,7 +42,14 @@ def bitcoin():
     """
     Method to return bitcoin prediction data when a user clicks the bitcoin card on coins.html
     """
-    return render_template('bitcoin.html')
+    project = server.get_project('mindsdb')
+    # database = server.get_database('files')
+    model = project.get_model('btcusd_prediction_mod')
+    view = project.get_view('eth_view')
+    df = view.fetch()
+    btc_table = df.head(20).to_html(index=False)
+
+    return render_template('bitcoin.html', model=model, view=view, df=df, btc_table=btc_table)
 
 
 @app.route('/ethereum', methods=['GET', 'POST'])
@@ -54,7 +60,7 @@ def ethereum():
     # project = server.get_project('mindsdb')
     # databases = server.get_database('files')
     # model = project.get_model('ethereum_predictions')
-    # query = project.query('SELECT * FROM ethereum_predictions as EP JOIN files.Ethereum as E WHERE E.Date > "2023-04-25" LIMIT 1;')
+    # query = project.query('SELECT Close FROM ethereum_predictions as EP JOIN files.Ethereum as E WHERE E.Date > '2023-04-26' LIMIT 1;')
     # print(query.fetch())
     return render_template('ethereum.html')
 
