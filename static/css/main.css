@@ -232,6 +232,38 @@ section.bitcoin {
 }
 
 
+.progress-circle {
+  position: relative; }
+  .progress-circle canvas {
+    height: 100% !important;
+    width: 100% !important; }
+  .progress-circle strong {
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    position: absolute;
+    font-size: 2.5rem;
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: 400;
+    top: 50%;
+    left: 50%; }
+.progress-circle {
+  position: relative; }
+  .progress-circle canvas {
+    height: 100% !important;
+    width: 100% !important; }
+  .progress-circle strong {
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    position: absolute;
+    font-size: 2.5rem;
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: 400;
+    top: 50%;
+    left: 50%; }
+
+
 @media (min-width: 600px) {
   .card {
     width: var(--card-width);

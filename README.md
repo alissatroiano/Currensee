@@ -23,7 +23,7 @@
 
 ## Introduction
 
-This financial app is a data-driven application that provides forecasting and analysis of cryptocurrencies. It is currently in the development phase and is being built using Python, Django, API, and MindsDB.
+Currensee is an open-source project that uses MindsDB Python SDK to make blockchain price predictions. Currensee's time-series machine learning models were trained on historical datasets and powered by MindsDB. Currensee's tech stack includes Python, Flask, MindsDB Python SDK, HTML, CSS, and Bootstrap 5.
 
 ## Research & Planning
 ### User Stories
@@ -32,15 +32,9 @@ User stories were created during the planning phase of this project and were use
 
 - As a user, I want the **‘About’** section to provide meaningful information about this software, so I can learn where the data is coming from and how the predictions are made. 
 
-- As a user, I want to fill out a search form so I can view my desired coin's predictions
+- As a user, I want to select a coin so I can view its' predictions
 
-- As a user, I want to filter predictions using relevant parameters so I can preview the most useful data
-
-- As a user, I want to view meaningful data insights & predictions based on my coin's historical data, so I can make informed decisions about my cryptocurrency(s).
-
-- As a user, I want to be able to view the website from my mobile device so I can check out coin predictions when I'm on the go.
-
-The following user stories were created for the advanced version (future release) of this app:
+- As a user, I want to view price predictions from models that were trained on historical data, so I can recieve the most accurate predictions.
 
 ## Features
 ### Frontend Features
@@ -49,19 +43,17 @@ The financial app aims to provide the following features:
 
 - **Cover Page**: Provides title, subtitle & open source project information for users & other developers
 
-![Screenshot]()
+![Screenshot]('docs/images/cover.png')
 
-- **Coins**: Provides an index page displaying coins currently supported by Currensee. ***This section is still in development.***
+- **Coins**: Provides an index page displaying coins currently supported by Currensee.
 
-![Screenshot]()
-
-- **Navigation**: A fixed navigation loading from the base template (`base.html`) makes it easy to navigate the app from any page  users the ability to navigate the app from any page or section includes external links (MindsDB, developer's GitHub, Slack, etc.)
+- **Coin Predictions** Clicking on a coin triggers a back end method that sends a request to MindsDB to retrieve the prediction data for the selected coin. The prediction data is then displayed on the front end on a new page. 
 
 ![Screenshot]()
 
 ### Backend Features
 
-- **Cryptocurrency Data:** The app fetches real-time cryptocurrency data using APIs and stores it in a dataset (CSV file) for analysis and forecasting.
+- **Cryptocurrency Data:** The models behind Currensee's predictions were trained on historical datasets and queried using MindsDB's Python SDK. The data is then displayed on the front end of the app.
 
 - **Forecasting**: The app utilizes the MindsDB library, a machine learning tool, to create predictive models for forecasting cryptocurrency prices. These models are trained on historical data and are used to generate forecasts for future price trends.
 
@@ -69,62 +61,18 @@ The financial app aims to provide the following features:
 
 - **Visualization**: The app uses data visualization techniques to present the forecasted and analyzed data in graphical form, such as line charts, bar charts, and candlestick charts, to make it easier for users to interpret and understand the information.
 
-
-## MindsDB Machine Learning Models
-
-The following time-series models were created using [MindsDB](https://cloud.mindsdb.com/) and are being queried to retrieve the prediction data displayed on the front-end of this application:
-
-- **btcusd_prediction_mod**: This model was trained on historical data for the BTC/USD pair and is used to generate forecasts for future price trends.
-
-```sql
-    CREATE MODEL btcusd_prediction_mod
-    FROM files (
-        SELECT * FROM test_data
-        WHERE ticker = 'btcusd'
-        LIMIT 2000
-        )
-    PREDICT close_price
-    ORDER BY date
-    WINDOW 3650
-    HORIZON 14;
-```
-
-**Ethereum Model**
-
-The following SQL query was used to create the `ethusd_prediction_mod` model:
-
-```sql
-CREATE MODEL ethusd_prediction_mod
-FROM files (
-    SELECT * FROM test_data
-    WHERE ticker = 'ethusd'
-    LIMIT 2000
-    )
-PREDICT close_price
-ORDER BY date
-WINDOW 3650N
-HORIZON 14;
-```
-
-
-### Advanced Features
-
-Be
--
 ## Technologies
 The financial app is being developed using the following technologies:
 
 - Python: A powerful programming language that is widely used in data analysis and machine learning tasks. It is used to implement the backend logic and data processing tasks.
 
-- Django: A popular web framework for Python that provides tools for building web applications efficiently. It is used to develop the server-side components of the app, handle user authentication, and manage database operations.
+- Flask: A popular web framework for Python that provides tools for building web applications efficiently.
 
 - HTML: The HyperText Markup Language or HTML markup language was used to build the document's body and structure
 
 - CSS: Cascading Style Sheets, the style-sheet language, was used to desribe the presentation of the HTML documents.
 
 - Bootstrap 5: The Bootstrap framework was used to simplify cross-platform responsiveness and add overall structure and styling.
-
-- API: Application Programming Interface (API) is used to fetch real-time cryptocurrency data from external sources, such as cryptocurrency exchanges, and integrate it into the app.
 
 - [MindsDB](https://mindsdb.com/): MindsDB is an open-source machine learning tool that simplifies the process of building and deploying predictive models. Currensee will use MindsDB to create custom prediction models and train them on historical data.
 
@@ -136,6 +84,12 @@ The financial app is being developed using the following technologies:
 
 ### Code
 
+### MindsDB
+
+- The article, ['Forecast Tesla Stock Prices using MindsDB'](https://dev.to/rutamhere/predict-tesla-stock-prices-using-mindsdb-40k5) was used as a reference when creating & training time-series models for Currensee.
+
+- Thee article, ['Creating Views with MindsDB'](https://dev.to/rutamhere/creating-views-with-mindsdb-1mnf) was referenced when creating views for Currensee.
+
 ### UX
 
 - [Visme](https://visme.co/blog/website-color-schemes/) - UX research.
@@ -143,9 +97,9 @@ The financial app is being developed using the following technologies:
 - ["Psychology of Color in Financial App Design" from windmill.digital](https://www.windmill.digital/psychology-of-color-in-financial-app-design/) - UX research.
 
 - [fontpair](https://www.fontpair.co/all) - This article was used to view trending font pairings. The font set used for this project was found in this article
-
 ### Media
 
 - [Iconduck](https://iconduck.com/icons/82936/bitcoin-cash-cryptocurrency) = Bitcoin, Etherium and Doge Coin icon set was downloaded from this site.s
 ### Other
 - [Kevsbest's article, "Top 5 AI Crypto Prediction Services Right Now"](https://kevsbest.com/ai-crypto-prediction-services-right-now/) was referenced while conducting competitor research.
+

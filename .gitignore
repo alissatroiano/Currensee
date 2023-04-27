@@ -21,3 +21,5 @@ server.crt
 server.csr
 server.key
 server.key.org
+cert.pem
+key.pem
