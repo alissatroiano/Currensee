@@ -60,8 +60,8 @@ def ethereum():
     # project = server.get_project('mindsdb')
     # databases = server.get_database('files')
     # model = project.get_model('ethereum_predictions')
-    query = project.query('SELECT EP.Close FROM ethereum_predictions as EP JOIN files.Ethereum as E WHERE E.Date > '2023-04-26' LIMIT 1;')
-    print(query.fetch())
+    # query = project.query('SELECT EP.Close, Date FROM ethereum_predictions as EP JOIN files.Ethereum as E WHERE E.Date > "2023-04-26" LIMIT 1;')
+    # print(query.fetch())
     return render_template('ethereum.html')
 
 
