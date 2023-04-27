@@ -1,5 +1,5 @@
 import os
-# import ssl
+import ssl
 from flask import Flask, render_template, request
 import mindsdb_sdk 
 from config import Config
@@ -49,4 +49,8 @@ def ethereum():
 
 
 if __name__ == '__main__':
-    app.run()
+    context = {
+        'cert.pem': 'cert.pem',
+        'key.pem': 'key.pem'
+    }
+    app.run(context=context)
