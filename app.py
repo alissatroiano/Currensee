@@ -1,5 +1,5 @@
 import os
-import ssl
+# import ssl
 from flask import Flask, render_template, request
 import mindsdb_sdk 
 from config import Config
@@ -23,18 +23,7 @@ def index():
 
 @app.route('/coins')
 def coins():
-    project = server.get_project('mindsdb')
-    # database = server.get_database('files')
-    btc_model = project.get_model('btcusd_prediction_mod')
-    bit_query = project.query('SELECT close_price FROM btcusd_prediction_mod WHERE Date = "2023-04-30";')
-    # database = server.get_database('files')
-    eth_model = project.get_model('ethereum_predictions')
-    # view = project.get_view('eth_view')
-    # df = view.fetch()
-    # btc_table = df.head(20).to_html(index=False)
-
-
-    return render_template('coins.html', title='Coins', bit_query=bit_query)
+    return render_template('coins.html', title='Coins')
 
 
 @app.route('/bitcoin', methods=['GET', 'POST'])
@@ -42,14 +31,8 @@ def bitcoin():
     """
     Method to return bitcoin prediction data when a user clicks the bitcoin card on coins.html
     """
-    project = server.get_project('mindsdb')
-    # database = server.get_database('files')
-    model = project.get_model('btcusd_prediction_mod')
-    view = project.get_view('eth_view')
-    df = view.fetch()
-    btc_table = df.head(20).to_html(index=False)
 
-    return render_template('bitcoin.html', model=model, view=view, df=df, btc_table=btc_table)
+    return render_template('bitcoin.html')
 
 
 @app.route('/ethereum', methods=['GET', 'POST'])
@@ -66,4 +49,4 @@ def ethereum():
 
 
 if __name__ == '__main__':
-    app.run(ssl_context='adhoc')
+    app.run()

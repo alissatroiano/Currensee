@@ -16,11 +16,10 @@
   <div class="row d-flex justify-content-center my-0 mx-auto g-3 p-3">
       <div class="col-xs-8 col-sm-4 p-3" >
         <div class="card h-100" id="bitcoin">
-         <!-- <a class="stretched-link" href="{{ url_for ('bitcoin') }}"></a> -->
+         <a class="stretched-link" href="{{ url_for ('bitcoin') }}"></a>
           <img src="../static/images/bitcoin-logo.png" alt="Bitcoin logo" class="img-fluid">
           <div class="predictions d-flex justify-content-center">
           <p>
-         {{ bit_query.fetch() }}
           </p>
         </div>
         </div>
