@@ -2,16 +2,31 @@
 {% block content %}
 
 <!--Cover-->
-<section class="cover">
-    <div class="row d-flex align-items-center mt-5 pt-5">
-      <div class="col-12 text-center align-items-center">
-        <h1 class="display-1 title mt-5 pt-5">curren<span class="title-text">$ee</span>
+<section class="cover pt-3">
+    <div class="row d-flex align-items-center pt-3 pt-sm-4 pt-md-5">
+      <div class="col-12 text-center align-items-center pt-3 pt-md-4">
+        <h1 class="title my-3 my-md-5 display-1" id="cover_title">curren<span class="title-text">$ee</span>
         </h1>
-        <h2 class="lead my-3 my-md-4">AI Blockchain Tool</h2>
-        <p class="small my-4 pt-3 pt-md-5">Powered by MindsDB </p>
-        <div class="d-grid d-md-flex justify-content-center mt-3 pt-3">
-          <button type="button" class="btn btn-light btn- pt-5lg px-4 me-md-2">COINS</button>
+        <h2 class="lead my-3 my-md-4 display-6">AI Blockchain Tool</h2>
+        <div class="d-flex justify-content-center mt-3 pt-3">
+          <button type="button" class="btn btn-blue pt-5lg px-4 me-md-2" id="cta-btn">
+            <a href="{{ url_for ('coins') }}">COINS</a>
+          </button>
         </div>
+        </div>
+        <div class="row d-flex justify-content-center align-items-center text-center">
+          <div class="col-12 mt-3 mt-md-5">
+            <h4 class="open-source-text">an open source project</h4>
+            <hr>
+            <h3 class="small my-4 pt-3 pt-md-5">Powered by 
+              <a href="https://mindsdb.com/" target="_blank" class="mdb-cta">MindsDB</a>
+            </h3>
+          </div>
+        </div>
+      
+      
+
+
       </div>
     </div>
   </section>

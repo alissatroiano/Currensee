@@ -10,9 +10,14 @@ venv/
 env/
 currensee/
 .venv/
+.vercel/
+.env
+virtualenv/
 
 # Passwords & Credentials
-config.py
-config/
-
+settings.py
 .vercel
+server.crt
+server.csr
+server.key
+server.key.org

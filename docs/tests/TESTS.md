@@ -230,3 +230,25 @@
     ```
     4. Mark test as 'pass' after determining proper way to call a model using the SDK. 
  
+
+
+CREATE VIEW mindsdb.eth_view_4 AS (
+    SELECT *,
+           p.Close AS Close_Predictions
+    FROM files.ethereum AS a
+    JOIN mindsdb.ethereum_predictions AS p ON a.Date > CURRENT
+);
+
+SELECT *
+FROM mindsdb.ethereum_view_4
+LIMIT 10;
+
+CREATE VIEW mindsdb.eth_table_5 AS (
+    SELECT a.Close,
+           p.Close AS Close_Predictions
+    FROM files.ethereum AS a
+    JOIN mindsdb.ethereum_predictions AS p
+    ON a.Date = p.Date
+    WHERE a.Date > '2023-04-30'
+    LIMIT 100
+);

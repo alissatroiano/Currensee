@@ -1,99 +1,240 @@
 @import url('https://fonts.googleapis.com/css2?family=Gruppo&family=Major+Mono+Display&family=Martian+Mono:wght@100;200;300;400;500;600;700;800&display=swap');
 
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 132deg;
+  inherits: false;
+}
 
 :root {
-    --dark: #01041f;
-    --primary: #0000FF;
-    --primary-1: #3500d3;
-    --primary-2: #240090;
-    --primary-3: #190061;
-    --navy: #000C66;
-    --light-blue: #7EC8E3;
-    --secondary: #dc3257;
-    --secondary-2: #dc3257;
-    --lightest: #fafafa;
-    --lighter: #f5f5f5;
-    --light: #eee;
-    --trans-light: #fafafa7e;
-    --trans-secondary: #2828287e;
-    --trans-primary: #3500d3c2;
-    --trans-primary-2: #240090d1;
-    --trans-primary-3: #180061de;
-    --trans-navy: #000c66e2;
-    --trans-dark: #01000af2;
+  --dark: #01041f;
+  --darker: #282828;
+  --grey: #282828;
+  --light-grey: #b5b7ba;
+  --primary-1: #3500d3;
+  --primary-2: #240090;
+  --primary-3: #190061;
+  --navy: #000C66;
+  --bg: #494880;
+  --light-blue: #41b7d1;
+  --mdb-green-1: #00a587;
+  --mdb-green-2: #38e2c3;
+  --mdb-green-3: #E5F7F4;
+  --mdb-blue: #084ee5;
+  --mdb-blue-2: #F2F6FE;
+  --secondary: #dc3257;
+  --secondary-2: #dc3257;
+  --lightest: #fafafa;
+  --lighter: #f5f5f5;
+  --light: #eee;
+  --trans-light: #fafafab2;
+  --trans-secondary: #2828287e;
+  --trans-primary: #3500d3c2;
+  --trans-primary-2: #240090d1;
+  --trans-primary-3: #0f0a5e9c;
+  --trans-navy: #00010977;
+  --trans-dark: #01000a9d;
+  --card-height: 65vh;
+  --card-width: calc(var(--card-height) / 1.5);
 }
 
 h1 {
-    color: var(--light);
+  color: var(--light);
 
 }
 
 /* Main Page Content */
 .title {
-    font-family: 'Martian Mono', monospace;
-    font-weight: 400;
-    letter-spacing: -3px;
+  font-family: 'gruppo', cursive;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 h1>span.title-text {
-    font-family: 'Gruppo', cursive;
-    text-transform: uppercase;
-    color: var(--light-blue);
-    font-size: larger;
-    font-weight: 200;
+  font-family: 'Gruppo', cursive;
+  text-transform: uppercase;
+  color: var(--light-blue);
+  font-weight: 700;
+  letter-spacing: -2px;
 }
 
-.lead {
-    color: var(--lighter);
+h2.lead {
+  color: var(--lighter);
+  font-family: 'Gruppo', cursive;
 }
 
 .small {
-    color: var(--light);
+  color: var(--light);
+  font-family: 'Gruppo', cursive;
+  font-weight: 400;
+  font-size: 1.25rem;
 }
 
 span {
-    color: var(--light-blue);
-    font-weight: 700;
-    /* text-shadow: 1px 1px 6px var(--trans-primary-3); */
+  color: var(--light-blue);
+  font-weight: 700;
+  /* text-shadow: 1px 1px 6px var(--trans-primary-3); */
 }
 
 .btn a {
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    color: var(--light);
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  color: var(--light);
 }
 
-.btn-main {
-    background-color: var(--secondary-2);
+.btn-blue {
+  outline: 1px solid var(--light-blue);
+  padding: 5px;
 }
 
 .bg-main {
-    background-color: var(--trans-dark);
+    background-color: #030620de
 }
 
-/* Navbar */
-.navbar-brand {
-    font-family: 'martian mono', monospace;
+/* ***************** Navbar */
+.navbar-brand,
+a.nav-link {
+  font-family: 'gruppo', cursive;
 }
 
-/* Home/Landing Page */
+/* *************** Cover/Landing Page */
 section.cover {
-    background: linear-gradient(#0200118e, #02000fbe), url('../images/particle_wave.jpeg') no-repeat center center fixed; 
-    /* background-color: var(--primary-3); */
-    max-width: 100%;
-    background-size: cover;
-    height: 100vh;
-    overflow: hidden;
+  background: linear-gradient(#020718c8, #071c2c89, #02051fc9), url('../images/bg1.jpg') no-repeat center center fixed;
+  background-size: cover;
+  max-width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
 }
 
-.image-box {
-    box-shadow: inset 0 0 0 100vw rgba(0,0,0,0.5);
-}
-
-.svg {
-    color: var(--light-blue);
+a.mdb-cta {
+  color: var(--mdb-green-1);
+  font-weight: 600;
+  text-decoration: underline;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
 }
 
 main.container-fluid {
-    padding: 0 0 0 0;
+  padding: 0 0 0 0;
+}
+
+.open-source-text {
+  font-family: 'Martian Mono', monospace;
+  font-weight: 200;
+  font-size: 1rem;
+  margin-top: 50px;
+  color: var(--lighter);
+}
+
+#cta-btn {
+  font-family: 'Martian Mono', monospace;
+  font-weight: 200;
+  font-size: 1rem;
+  margin-top: 50px;
+  color: var(--lighter);
+}
+
+/* -------------------- Coins */
+section.coins {
+  background-color: var(--dark);
+  min-height: 100vh;
+}
+
+.card {
+  max-width: 100%;
+  height: auto;
+  background: #fafafab2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: rgb(88 199 250 / 0%);
+  font-family: 'Martian Mono', monospace;
+  filter: grayscale(60%);
+  border-radius: 10%;
+  border-color: transparent;
+  background-color: #e3e9edb1;
+}
+/* 
+form#bitcoinForm {
+  display: none;
+}
+ */
+
+.card:hover {
+  filter: grayscale(0%);
+  color: var(--darker);
+  background-color: #eff1f2de;
+  transition: color 1s;
+}
+
+#bitcoinForm:hover {
+  display: block;
+}
+
+.card:hover:before, .card:hover:after {
+  animation: none;
+  opacity: 0;
+}
+
+.card::before {
+  content: "";
+  width: 104%;
+  height: 102%;
+  background-color: linear-gradient(var(--rotate), var(--light-blue), var(--mdb-blue) 43%, var(--light-blue));
+  position: absolute;
+  top: -1%;
+  left: -2%;
+  animation: spin 2.5s linear infinite;
+}
+
+.card::after {
+  position: absolute;
+  content: "";
+  top: calc(var(--card-height) / 6);
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  transform: scale(0.8);
+  filter: blur(calc(var(--card-height) / 6));
+  background-image: linear-gradient(var(--rotate), #5ddcffc8, #3c66e3a8 43%, #4e00c2b0);
+  opacity: 1;
+  transition: opacity .5s;
+  animation: spin 2.5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+
+  100% {
+    --rotate: 360deg;
+  }
+}
+
+
+  
+h2.title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase; 
+}
+
+
+/* ---------------- Bitcoin Predictions */
+section.bitcoin {
+  background-color: var(--dark);
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+
+@media (min-width: 600px) {
+  .card {
+    width: var(--card-width);
+    height: var(--card-height);
+  }
 }
