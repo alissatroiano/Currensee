@@ -7,35 +7,25 @@
 }
 
 :root {
+  --bg: #494880;
   --dark: #01041f;
   --darker: #282828;
   --grey: #282828;
   --light-grey: #b5b7ba;
+  --primary: #494880;
   --primary-1: #3500d3;
   --primary-2: #240090;
   --primary-3: #190061;
   --navy: #000C66;
-  --bg: #494880;
   --light-blue: #41b7d1;
   --mdb-green-1: #00a587;
   --mdb-green-2: #38e2c3;
   --mdb-green-3: #E5F7F4;
-  --mdb-blue: #084ee5;
-  --mdb-blue-2: #F2F6FE;
-  --secondary: #dc3257;
-  --secondary-2: #dc3257;
   --lightest: #fafafa;
   --lighter: #f5f5f5;
   --light: #eee;
-  --trans-light: #fafafab2;
-  --trans-secondary: #2828287e;
-  --trans-primary: #3500d3c2;
-  --trans-primary-2: #240090d1;
-  --trans-primary-3: #0f0a5e9c;
-  --trans-navy: #00010977;
-  --trans-dark: #01000a9d;
   --card-height: 65vh;
-  --card-width: calc(var(--card-height) / 1.5);
+  --card-width: calc(var(--card-height) / 2);
 }
 
 h1 {
@@ -88,7 +78,7 @@ span {
 }
 
 .bg-main {
-    background-color: #030620de
+  background-color: #030620de
 }
 
 /* ***************** Navbar */
@@ -148,31 +138,29 @@ section.coins {
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: rgb(88 199 250 / 0%);
+  color: rgba(42, 50, 53, 0);
   font-family: 'Martian Mono', monospace;
-  filter: grayscale(60%);
+  filter: grayscale(70%);
   border-radius: 10%;
   border-color: transparent;
   background-color: #e3e9edb1;
+  opacity: .8;
 }
-/* 
-form#bitcoinForm {
-  display: none;
-}
- */
 
 .card:hover {
   filter: grayscale(0%);
-  color: var(--darker);
+  color: var(--bg);
   background-color: #eff1f2de;
   transition: color 1s;
+  opacity: 1;
 }
 
 #bitcoinForm:hover {
   display: block;
 }
 
-.card:hover:before, .card:hover:after {
+.card:hover:before,
+.card:hover:after {
   animation: none;
   opacity: 0;
 }
@@ -201,7 +189,7 @@ form#bitcoinForm {
   filter: blur(calc(var(--card-height) / 6));
   background-image: linear-gradient(var(--rotate), #5ddcffc8, #3c66e3a8 43%, #4e00c2b0);
   opacity: 1;
-  transition: opacity .5s;
+  transition: opacity 1s;
   animation: spin 2.5s linear infinite;
 }
 
@@ -216,11 +204,11 @@ form#bitcoinForm {
 }
 
 
-  
+
 h2.title {
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
-    text-transform: uppercase; 
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
 }
 
 
@@ -231,37 +219,46 @@ section.bitcoin {
   overflow: hidden;
 }
 
+.progress-title {
+  margin-bottom: 1em;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.text-white .progress {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.text-white .progress-bar {
+  background: #fff;
+}
+
+.text-white .progress-bar span {
+  color: #fff;
+}
 
 .progress-circle {
-  position: relative; }
-  .progress-circle canvas {
-    height: 100% !important;
-    width: 100% !important; }
-  .progress-circle strong {
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    position: absolute;
-    font-size: 2.5rem;
-    font-family: "Nunito Sans", sans-serif;
-    font-weight: 400;
-    top: 50%;
-    left: 50%; }
-.progress-circle {
-  position: relative; }
-  .progress-circle canvas {
-    height: 100% !important;
-    width: 100% !important; }
-  .progress-circle strong {
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    position: absolute;
-    font-size: 2.5rem;
-    font-family: "Nunito Sans", sans-serif;
-    font-weight: 400;
-    top: 50%;
-    left: 50%; }
+  position: relative;
+}
+
+.progress-circle canvas {
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.progress-circle strong {
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position: absolute;
+  font-size: 2.5rem;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 400;
+  top: 50%;
+  left: 50%;
+}
 
 
 @media (min-width: 600px) {
