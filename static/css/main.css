@@ -46,6 +46,8 @@ hr {
   font-family: 'gruppo', cursive;
   font-weight: 700;
   text-transform: uppercase;
+  color: var(--light-grey);
+
 }
 
 h1>span.title-text {
@@ -59,6 +61,12 @@ h1>span.title-text {
 .lead {
   color: var(--lighter);
   font-family: 'Gruppo', cursive;
+}
+
+.subheading {
+  font-family: 'inter', sans-serif;
+  text-transform: lowercase;
+  color: var(--light-grey);
 }
 
 .small {
@@ -97,11 +105,85 @@ a.nav-link {
 
 /* *************** Cover/Landing Page */
 section.cover {
-  background: linear-gradient(#020718c8, #071c2c89, #02051fc9), url('../images/bg1.jpg') no-repeat center center fixed;
+  background: linear-gradient(#020718c8, #071c2ca4, #02051fc9), url('../images/bg1.jpg') no-repeat center center fixed;
   background-size: cover;
   max-width: 100%;
   min-height: 100vh;
   overflow: hidden;
+}
+
+a.cover-link {
+  font-family: 'gruppo', sans-serif;
+}
+
+.btn.cover {
+  --border-color-hover: var(--light-blue);
+}
+
+
+.btn {
+  --text-color-normal: #8b8b8b;
+  --text-color-hover: #d4d4d4;
+  --border-radius: 0;
+  --border-color-normal: rgba(83, 167, 227, 0.678);
+  --border-color-hover: var(--light-blue);
+  position: relative;
+  display: inline-block;
+  width: 150px;
+  height: 100%;
+  font-size: 14px;
+  line-height: 34px;
+  letter-spacing: -.025em;
+  word-spacing: -.05em;
+  transition: .5s;
+  text-align: center;
+  cursor: pointer;
+  margin: 10px auto;
+  background: transparent;
+  border: 1px solid var(--border-color-normal);
+  border-radius: var(--border-radius); 
+  color: var(--text-color-normal);
+}
+
+.btn:focus {
+  color: var(--text-color-hover);
+  outline: 1px solid var(--border-color-hover);
+}
+
+.btn:before,
+.btn:after {
+  position: absolute;
+  content: "";
+  left: -1px;
+  top: -1px;
+  right: -1px;
+  bottom: -1px;
+  box-sizing: border-box;
+  z-index: 11;
+  transform: scale(0);
+  transition: .5s;
+  border-radius: var(--border-radius); 
+}
+
+.btn:before {
+  border-bottom: 1px solid var(--border-color-hover);
+  border-left: 1px solid var(--border-color-hover);
+  transform-origin: 0 100%;
+}
+
+.btn:after {
+  border-top: 1px solid var(--border-color-hover);
+  border-right: 1px solid var(--border-color-hover);
+  transform-origin: 100% 0;
+}
+
+.btn:hover {
+color: var(--text-color-hover);
+}
+
+.btn:hover:before,
+.btn:hover:after {
+transform: scale(1);
 }
 
 a.mdb-cta {
@@ -141,7 +223,11 @@ section.coins {
 .card {
   max-width: 100%;
   height: auto;
-  background: #fafafab2;
+  background: rgba(140, 194, 223, 0.684);
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 18px );
+  -webkit-backdrop-filter: blur( 18px );
+  border: 1px solid rgba( 255, 255, 255, 0.18 );  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -151,7 +237,8 @@ section.coins {
   filter: grayscale(60%);
   border-radius: 10%;
   border-color: transparent;
-  background-color: #e3e9edb1;
+  opacity: .75;
+  /* background-color: #e3e9edb1; */
 }
 
 .card:hover {
@@ -172,8 +259,6 @@ section.coins {
 
 .card::before {
   content: "";
-  width: 104%;
-  height: 102%;
   background-color: linear-gradient(var(--rotate), var(--light-blue), var(--mdb-blue) 43%, var(--light-blue));
   position: absolute;
   top: -1%;
@@ -207,7 +292,6 @@ section.coins {
     --rotate: 360deg;
   }
 }
-
 
 /* ---------------- Bitcoin Predictions */
 section.bitcoin {
@@ -262,6 +346,8 @@ th#text {
   text-align: start;
   margin: 0 auto;
 }
+
+
 
 @media (min-width: 600px) {
   .card {
