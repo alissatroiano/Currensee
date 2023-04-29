@@ -34,8 +34,6 @@ def bitcoin():
     return render_template('bitcoin.html')
 
 
-import json
-
 @app.route('/ethereum', methods=['GET', 'POST'])
 def ethereum():
     """
@@ -44,12 +42,9 @@ def ethereum():
     project = server.get_project('mindsdb')
     query = project.query('SELECT T.Date as Date, T.Close as Prediction, Close_explain FROM mindsdb.eth_1 as T JOIN files.Ethereum as P WHERE P.Date > LATEST LIMIT 7;')
     # create a dataframe for data from query
-    result = query.fetch()
-    eth_df = DataFrame(result, columns=result.columns)
-    eth_df['Date'] = eth_df['Date'].dt.strftime('%Y-%m-%d')
-    eth_df['Prediction'] = eth_df['Prediction'].apply(lambda x: f'${x:,.2f}')
+    eth_df = DataFrame.to_html(query.fetch(), index=False)
 
-    return render_template('ethereum.html', eth_df=json.dumps(eth_df.to_dict(orient='records')))
+    return render_template('ethereum.html', query=query, eth_df=eth_df)
 
 
 if __name__ == '__main__':

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,10 +7,12 @@
   <!--Load Bootstrap-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <!--Load Google Fonts-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gruppo&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Major+Mono+Display&family=Martian+Mono:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!--Load Google Fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Gruppo&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Major+Mono+Display&family=Martian+Mono:wght@100;200;300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <!--Load Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css"
     integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" crossorigin="anonymous">
@@ -26,9 +27,8 @@
   {% endblock %}
 
 </head>
-
 <body>
-  <!--Navbar--> 
+  <!--Navbar-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-main">
     <div class="container-fluid">
       <a class="navbar-brand" href="{{ url_for ('index') }}">curren<span class="title-text">$ee</span>
@@ -46,17 +46,20 @@
             <a class="nav-link" href="{{ url_for ('coins') }}">Coins</a>
           </li>
           <li class="nav-item mx-md-3">
-            <a class="nav-link" href="https://github.com/alissatroiano/Currensee/blob/master/README.md" target="_blank">How it Works</a>
+            <a class="nav-link" href="https://github.com/alissatroiano/Currensee/blob/master/README.md"
+              target="_blank">How it Works</a>
           </li>
           <li class="nav-item mx-md-3 dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Community
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="https://mindsdbcommunity.slack.com/join/shared_invite/zt-o8mrmx3l-5ai~5H66s6wlxFfBMVI6wQ#/shared-invite/email" target="_blank">
-                <i class="fab fa-slack"></i> MindsDB</a></li>
-              <li><a class="dropdown-item" href="#"><i class="fab fa-discord"></i>  MindsDB</a></li>
-             </ul>
+              <li><a class="dropdown-item"
+                  href="https://mindsdbcommunity.slack.com/join/shared_invite/zt-o8mrmx3l-5ai~5H66s6wlxFfBMVI6wQ#/shared-invite/email"
+                  target="_blank">
+                  <i class="fab fa-slack"></i> MindsDB</a></li>
+              <li><a class="dropdown-item" href="#"><i class="fab fa-discord"></i> MindsDB</a></li>
+            </ul>
           </li>
           <li class="nav-item me-3">
             <a class="nav-link" href="https://github.com/alissatroiano/Currensee" target="_blank">Contribute</a>
@@ -65,18 +68,14 @@
       </div>
     </div>
   </nav>
-
-    <main class="container-fluid">
-      {% block content %}{% endblock %}
-    </main>
-
+  <main class="container-fluid">
+    {% block content %}{% endblock %}
+  </main>
   <!--Load Bootstrap Scripts-->
   {% block scripts %}
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
   {% endblock %}
-
 </body>
-
 </html>
