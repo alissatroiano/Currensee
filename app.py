@@ -5,8 +5,8 @@ from config import Config
 from settings import MINDSDB_EMAIL, MINDSDB_PASSWORD
 from forms import CoinForm
 import pandas as pd
-
-
+from pandas import DataFrame
+# import handlers from scripts/get_models.py here
 app = Flask(__name__)
 
 app.config.from_object(Config)
@@ -34,18 +34,23 @@ def bitcoin():
     return render_template('bitcoin.html')
 
 
+import json
+
 @app.route('/ethereum', methods=['GET', 'POST'])
 def ethereum():
     """
     Method to return ethereum prediction data when a user clicks the ethereum card on coins.html
     """
-    # project = server.get_project('mindsdb')
-    # databases = server.get_database('files')
-    # model = project.get_model('ethereum_predictions')
-    # query = project.query('SELECT EP.Close, Date FROM ethereum_predictions as EP JOIN files.Ethereum as E WHERE E.Date > "2023-04-26" LIMIT 1;')
-    # print(query.fetch())
-    return render_template('ethereum.html')
+    project = server.get_project('mindsdb')
+    query = project.query('SELECT T.Date as Date, T.Close as Prediction, Close_explain FROM mindsdb.eth_1 as T JOIN files.Ethereum as P WHERE P.Date > LATEST LIMIT 7;')
+    # create a dataframe for data from query
+    result = query.fetch()
+    eth_df = DataFrame(result, columns=result.columns)
+    eth_df['Date'] = eth_df['Date'].dt.strftime('%Y-%m-%d')
+    eth_df['Prediction'] = eth_df['Prediction'].apply(lambda x: f'${x:,.2f}')
+
+    return render_template('ethereum.html', eth_df=json.dumps(eth_df.to_dict(orient='records')))
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

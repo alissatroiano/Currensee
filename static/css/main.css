@@ -26,14 +26,7 @@
   --secondary-2: #dc3257;
   --lightest: #fafafa;
   --lighter: #f5f5f5;
-  --light: #eee;
-  --trans-light: #fafafab2;
-  --trans-secondary: #2828287e;
-  --trans-primary: #3500d3c2;
-  --trans-primary-2: #240090d1;
-  --trans-primary-3: #0f0a5e9c;
-  --trans-navy: #00010977;
-  --trans-dark: #01000a9d;
+  --light: #eee;;
   --card-height: 65vh;
   --card-width: calc(var(--card-height) / 1.5);
 }
@@ -41,6 +34,11 @@
 h1 {
   color: var(--light);
 
+}
+
+hr {
+  border: 2px solid var(--light-grey);
+  width: 80%;
 }
 
 /* Main Page Content */
@@ -58,7 +56,7 @@ h1>span.title-text {
   letter-spacing: -2px;
 }
 
-h2.lead {
+.lead {
   color: var(--lighter);
   font-family: 'Gruppo', cursive;
 }
@@ -155,11 +153,6 @@ section.coins {
   border-color: transparent;
   background-color: #e3e9edb1;
 }
-/* 
-form#bitcoinForm {
-  display: none;
-}
- */
 
 .card:hover {
   filter: grayscale(0%);
@@ -216,14 +209,6 @@ form#bitcoinForm {
 }
 
 
-  
-h2.title {
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
-    text-transform: uppercase; 
-}
-
-
 /* ---------------- Bitcoin Predictions */
 section.bitcoin {
   background-color: var(--dark);
@@ -231,38 +216,52 @@ section.bitcoin {
   overflow: hidden;
 }
 
+/* ---------------- Ethereum Predictions */
+section#ethereum {
+  background-color: var(--dark);
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 10px;
+}
 
-.progress-circle {
-  position: relative; }
-  .progress-circle canvas {
-    height: 100% !important;
-    width: 100% !important; }
-  .progress-circle strong {
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    position: absolute;
-    font-size: 2.5rem;
-    font-family: "Nunito Sans", sans-serif;
-    font-weight: 400;
-    top: 50%;
-    left: 50%; }
-.progress-circle {
-  position: relative; }
-  .progress-circle canvas {
-    height: 100% !important;
-    width: 100% !important; }
-  .progress-circle strong {
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    position: absolute;
-    font-size: 2.5rem;
-    font-family: "Nunito Sans", sans-serif;
-    font-weight: 400;
-    top: 50%;
-    left: 50%; }
+.table {
+  text-align: start;
+}
 
+
+tr, 
+table.dataframe,
+tr#text {
+  text-align: start;
+  font-family: 'Gruppo', cursive;
+  color: #939dc4e0;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd)>* {
+  color: var(--light-blue);
+}
+
+table {
+  padding: 0px;
+}
+
+/* removes the excess zeros from the date data */
+td:first-child {
+  white-space: nowrap;
+}
+
+th,
+th.data,
+th#text {
+  color: var(--light-grey);
+  font-size: 1.3rem;
+  font-weight: 800;
+  font-family: 'Gruppo', sans-serif;
+  text-align: start;
+  margin: 0 auto;
+}
 
 @media (min-width: 600px) {
   .card {

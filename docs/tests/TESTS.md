@@ -231,7 +231,12 @@
     4. Mark test as 'pass' after determining proper way to call a model using the SDK. 
  
 
+ ## Models That Don't Work
+CREATE MODEL btcusd_predictions
+SELECT * FROM test_data
+        WHERE ticker = 'btcusd';
 
+ ## Views That Don't Work
 CREATE VIEW mindsdb.eth_view_4 AS (
     SELECT *,
            p.Close AS Close_Predictions

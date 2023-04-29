@@ -5,23 +5,17 @@
   <div class="container my-0 mx-auto">
   <div class="row p-2 pt-md-4 my-0 mx-auto">
     <div class="col-12 text-start p-3 mt-md-4 text-light">
-      <h2 class="my-2 border-bottom">Coins</h2>
+      <h2 class="my-2 border-bottom display-3 title">Coins</h2>
       <p class="subheading">Hover your mouse over a coin card to view its' closing price prediction for next week</p>
     </div>
   </div>
-  <!-- <div class="row text-start">
-    {{ btc_table|safe }}
-  </div> -->
-
   <div class="row d-flex justify-content-center my-0 mx-auto g-3 p-3">
       <div class="col-xs-8 col-sm-4 p-3" >
         <div class="card h-100" id="bitcoin">
          <a class="stretched-link" href="{{ url_for ('bitcoin') }}"></a>
           <img src="../static/images/bitcoin-logo.png" alt="Bitcoin logo" class="img-fluid">
-          <div class="predictions d-flex justify-content-center">
-          <p>
-          </p>
-        </div>
+          <h4>Bitcoin</h4>
+
         </div>
       </div>
       <div class="col-xs-8 col-sm-4 p-3" >
@@ -29,7 +23,7 @@
           <div class="d-flex flex-column p-5 pb-3 front">
             <img src="../static/images/etherium-icon.png" alt="Ethereum" class="img-fluid">
             <a class="stretched-link" href="{{ url_for ('ethereum') }}"></a>
-            <h2>Etherium</h2>
+            <h4>Ethereum</h4>
           </div>
         </div>
       </div>
