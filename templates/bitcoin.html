@@ -2,53 +2,55 @@
 {% block content %}
 
 <section class="bitcoin">
-<div class="container">
+  <div class="container">
     <div class="row">
-<!-- render the bitcoin method query results here-->    
-    <div class="col-12 mt-3">
-        <h2 class="my-2 py-2 my-sm-4 py-md-4 border-bottom title text-light display-4 text-start">Bitcoin Predictions</h2>
-        </div>
-  </div>
-        <div class="row">
-            <div class="col-4">
-                <p>
-                <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                  Next Week's Predictions
-                </a>
-                </p>
-            </div>
-            <div class="col-4">
-                <p>
-                <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2">
-                  Close Price 
-                </a>
-                </p>
+      <!-- render the bitcoin method query results here-->
+      <div class="col-12 mt-3">
+        <h2 class="my-2 py-2 my-sm-4 py-md-4 border-bottom title text-light display-4 text-start">Bitcoin Predictions
+        </h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <p>
+          <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button"
+            aria-expanded="false" aria-controls="collapseExample">
+            Next Week's Predictions
+          </a>
+        </p>
+      </div>
+      <div class="col-4">
+        <p>
+          <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample2" role="button"
+            aria-expanded="false" aria-controls="collapseExample2">
+            Close Price
+          </a>
+        </p>
 
-              <div class="collapse" id="collapseExample2">
-                <div class="card card-body">
-                </div>
-              </div>
-            </div>
-            <div class="col-4">
-              <p>
-              <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                Open Price 
-              </a>
-              </p>
-          </div>
-
-        </div>
-
-        <div class="row">
-          <div class="col-12 mt-5 pt-5">
-          <div class="collapse" id="collapseExample">
-            <div class="text">
-              Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
-            </div>
+        <div class="collapse" id="collapseExample2">
+          <div class="card card-body">
           </div>
         </div>
+      </div>
+      <div class="col-4">
+        <p>
+          <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button"
+            aria-expanded="false" aria-controls="collapseExample">
+            Open Price
+          </a>
+        </p>
+      </div>
     </div>
 
-
+    <div class="row">
+      <div class="col-12 mt-5 pt-5">
+        <div class="collapse" id="collapseExample">
+          <div class="text">
+            Some placeholder content for the collapse component. This panel is hidden by default but revealed when the
+            user activates the relevant trigger.
+          </div>
+        </div>
+      </div>
+    </div>
 </section>
 {% endblock %}

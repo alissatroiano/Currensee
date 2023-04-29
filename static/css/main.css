@@ -37,15 +37,22 @@ h1 {
 }
 
 hr {
-  border: 2px solid var(--light-grey);
-  width: 80%;
+  border-bottom: 2px solid #dfdff0;
+  width: 50%;
 }
 
 /* Main Page Content */
+main {
+  height: 100vh;
+  background-color: #01041f;
+}
+
 .title {
   font-family: 'gruppo', cursive;
   font-weight: 700;
   text-transform: uppercase;
+  color: var(--light-grey);
+
 }
 
 h1>span.title-text {
@@ -59,6 +66,14 @@ h1>span.title-text {
 .lead {
   color: var(--lighter);
   font-family: 'Gruppo', cursive;
+}
+
+.subheading {
+  font-family: 'Martian Mono', monospace;
+  text-transform: lowercase;
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--light-grey);
 }
 
 .small {
@@ -77,7 +92,6 @@ span {
 .btn a {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  color: var(--light);
 }
 
 .btn-blue {
@@ -97,11 +111,94 @@ a.nav-link {
 
 /* *************** Cover/Landing Page */
 section.cover {
-  background: linear-gradient(#020718c8, #071c2c89, #02051fc9), url('../images/bg1.jpg') no-repeat center center fixed;
+  background: linear-gradient(#020718c8, #071c2ca4, #02051fc9), url('../images/bg1.jpg') no-repeat center center fixed;
   background-size: cover;
   max-width: 100%;
   min-height: 100vh;
   overflow: hidden;
+}
+
+a.cover-link {
+  font-family: 'gruppo', sans-serif;
+}
+
+.btn.cover {
+  --border-color-hover: var(--light-blue);
+}
+
+
+.btn {
+  --text-color-normal: #8b8b8b;
+  --text-color-hover: #d4d4d4;
+  --border-radius: 0;
+  --border-color-normal: var(--bg);
+  --border-color-hover: var(--light-blue);
+  position: relative;
+  display: inline-block;
+  width: 150px;
+  height: 100%;
+  font-size: 1.2rem;
+  letter-spacing: -.025em;
+  word-spacing: -.05em;
+  transition: .5s;
+  text-align: center;
+  cursor: pointer;
+  margin: 0 auto;
+  padding: 20px;
+  background: transparent;
+  border: 2px solid var(--border-color-normal);
+  border-radius: var(--border-radius); 
+}
+
+.btn:focus {
+  outline: 2px solid var(--border-color-hover);
+}
+
+.btn:before,
+.btn:after {
+  position: absolute;
+  content: "";
+  left: -1px;
+  top: -1px;
+  right: -1px;
+  bottom: -1px;
+  box-sizing: border-box;
+  z-index: 11;
+  transform: scale(0);
+  transition: 1.25s;
+  border-radius: var(--border-radius); 
+}
+
+.btn:before {
+  border-bottom: 3.5px solid var(--border-color-hover);
+  border-left: 1.5px solid var(--border-color-hover);
+  transform-origin: 0 100%;
+}
+
+.btn:after {
+  border-top: 3.85px solid var(--border-color-hover);
+  border-right: 1.5px solid var(--border-color-hover);
+  transform-origin: 100% 0;
+}
+
+.btn:hover {
+color: var(--text-color-hover);
+}
+
+.btn:hover:before,
+.btn:hover:after {
+transform: scale(1);
+}
+
+a#coverLink {
+  font-family: 'Martian Mono', monospace;
+  color-interpolation-filters: var(--light);
+  color: #7473b8d4;
+}
+
+a#coverLink:hover {
+  opacity: 1;
+  color: var(--light);
 }
 
 a.mdb-cta {
@@ -128,7 +225,6 @@ main.container-fluid {
   font-family: 'Martian Mono', monospace;
   font-weight: 200;
   font-size: 1rem;
-  margin-top: 50px;
   color: var(--lighter);
 }
 
@@ -141,7 +237,11 @@ section.coins {
 .card {
   max-width: 100%;
   height: auto;
-  background: #fafafab2;
+  background: rgba(140, 194, 223, 0.684);
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 18px );
+  -webkit-backdrop-filter: blur( 18px );
+  border: 1px solid rgba( 255, 255, 255, 0.18 );  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -151,7 +251,8 @@ section.coins {
   filter: grayscale(60%);
   border-radius: 10%;
   border-color: transparent;
-  background-color: #e3e9edb1;
+  opacity: .75;
+  /* background-color: #e3e9edb1; */
 }
 
 .card:hover {
@@ -172,8 +273,6 @@ section.coins {
 
 .card::before {
   content: "";
-  width: 104%;
-  height: 102%;
   background-color: linear-gradient(var(--rotate), var(--light-blue), var(--mdb-blue) 43%, var(--light-blue));
   position: absolute;
   top: -1%;
@@ -207,7 +306,6 @@ section.coins {
     --rotate: 360deg;
   }
 }
-
 
 /* ---------------- Bitcoin Predictions */
 section.bitcoin {
@@ -262,6 +360,7 @@ th#text {
   text-align: start;
   margin: 0 auto;
 }
+
 
 @media (min-width: 600px) {
   .card {
