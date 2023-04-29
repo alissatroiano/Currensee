@@ -6,7 +6,7 @@ from settings import MINDSDB_EMAIL, MINDSDB_PASSWORD
 from forms import CoinForm
 import pandas as pd
 from pandas import DataFrame
-# import handlers from scripts/get_models.py here
+
 app = Flask(__name__)
 
 app.config.from_object(Config)
@@ -40,7 +40,7 @@ def ethereum():
     Method to return ethereum prediction data when a user clicks the ethereum card on coins.html
     """
     project = server.get_project('mindsdb')
-    query = project.query('SELECT T.Date as Date, T.Close as Prediction, Close_explain FROM mindsdb.eth_1 as T JOIN files.Ethereum as P WHERE P.Date > LATEST LIMIT 7;')
+    query = project.query('SELECT T.Date as Date, T.Close as Close FROM mindsdb.eth_1 as T JOIN files.Ethereum as P WHERE P.Date > LATEST LIMIT 7;')
     # create a dataframe for data from query
     eth_df = DataFrame.to_html(query.fetch(), index=False)
 

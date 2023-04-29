@@ -257,3 +257,15 @@ CREATE VIEW mindsdb.eth_table_5 AS (
     WHERE a.Date > '2023-04-30'
     LIMIT 100
 );
+
+# IP
+
+SELECT T.Date as Date,
+T.Close as Close_Price, Close_explain,
+T.Open as Open_Price, Open_Explain,
+T.High AS High_Price, High_Explain,
+T.Low AS Low_Price, Low_Explain
+FROM mindsdb.eth_model_prices as T
+JOIN files.Ethereum as P
+WHERE P.Date > LATEST
+LIMIT 14;
