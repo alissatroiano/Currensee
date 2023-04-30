@@ -30,6 +30,11 @@ def bitcoin():
     """
     Method to return bitcoin prediction data when a user clicks the bitcoin card on coins.html
     """
+    project = server.get_project('mindsdb')
+    query = project.query('SELECT T.Date as Date, T.Close as Close FROM mindsdb.eth_1 as T JOIN files.Ethereum as P WHERE P.Date > LATEST LIMIT 14;')
+    # create a dataframe for data from query
+    eth_df = DataFrame.to_html(query.fetch(), index=False)
+
 
     return render_template('bitcoin.html')
 
@@ -40,7 +45,7 @@ def ethereum():
     Method to return ethereum prediction data when a user clicks the ethereum card on coins.html
     """
     project = server.get_project('mindsdb')
-    query = project.query('SELECT T.Date as Date, T.Close as Close FROM mindsdb.eth_1 as T JOIN files.Ethereum as P WHERE P.Date > LATEST LIMIT 7;')
+    query = project.query('SELECT T.Date as Date, T.Close as Close, T.Open AS Open, T.High AS High, T.Low AS Low FROM mindsdb.eth_model as T JOIN files.Ethereum as P WHERE P.Date > LATEST LIMIT 14;')
     # create a dataframe for data from query
     eth_df = DataFrame.to_html(query.fetch(), index=False)
 
