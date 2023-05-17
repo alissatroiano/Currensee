@@ -6,6 +6,7 @@ from settings import MINDSDB_EMAIL, MINDSDB_PASSWORD
 from forms import CoinForm
 import pandas as pd
 from pandas import DataFrame
+import psycopg2
 
 app = Flask(__name__)
 
@@ -13,6 +14,15 @@ app.config.from_object(Config)
 
 server = mindsdb_sdk.connect('https://cloud.mindsdb.com', email=MINDSDB_EMAIL, password=MINDSDB_PASSWORD)
 import mindsdb_sdk
+
+conn = psycopg2.connect(database="coins", user="alissa",
+                        password="apple@10", host="localhost", port="5000")
+cur = conn.cursor()
+  
+conn.commit()
+  
+cur.close()
+conn.close()
 
 
 @app.route('/')
