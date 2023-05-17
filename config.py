@@ -1,5 +1,4 @@
 from settings import MINDSDB_EMAIL, MINDSDB_PASSWORD, SECRET_KEY, MDB_URI
-import mindsdb_sdk
 
 class Config:
     MINDSDB_EMAIL = MINDSDB_EMAIL

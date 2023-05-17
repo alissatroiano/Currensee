@@ -1,18 +1,16 @@
-import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template
 import mindsdb_sdk 
 from config import Config
 from settings import MINDSDB_EMAIL, MINDSDB_PASSWORD
-from forms import CoinForm
-import pandas as pd
 from pandas import DataFrame
 
 app = Flask(__name__)
 
 app.config.from_object(Config)
 
-server = mindsdb_sdk.connect('https://cloud.mindsdb.com', email=MINDSDB_EMAIL, password=MINDSDB_PASSWORD)
-import mindsdb_sdk
+server = mindsdb_sdk.connect('https://cloud.mindsdb.com',
+            email=MINDSDB_EMAIL, password=MINDSDB_PASSWORD)
+
 
 
 @app.route('/')
@@ -28,7 +26,8 @@ def coins():
 @app.route('/bitcoin', methods=['GET', 'POST'])
 def bitcoin():
     """
-    Method to return bitcoin prediction data when a user clicks the bitcoin card on coins.html
+    Method to return bitcoin prediction data when a
+    user clicks the bitcoin card on coins.html
     """
 
     return render_template('bitcoin.html')
@@ -37,10 +36,13 @@ def bitcoin():
 @app.route('/ethereum', methods=['GET', 'POST'])
 def ethereum():
     """
-    Method to return ethereum prediction data when a user clicks the ethereum card on coins.html
+    Method to return ethereum prediction data when
+    a user clicks the ethereum card on coins.html
     """
     project = server.get_project('mindsdb')
-    query = project.query('SELECT T.Date as Date, T.Close as Close FROM mindsdb.eth_1 as T JOIN files.Ethereum as P WHERE P.Date > LATEST LIMIT 7;')
+    query = project.query('SELECT T.Date as Date, T.Close '
+                          'as Close FROM mindsdb.eth_1 as T JOIN files.Ethereum '
+                          'as P WHERE P.Date > LATEST LIMIT 7;')
     # create a dataframe for data from query
     eth_df = DataFrame.to_html(query.fetch(), index=False)
 
