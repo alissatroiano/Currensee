@@ -11,6 +11,7 @@ Jinja2==2.11.3
 Flask-Compress==1.13
 Flask-WTF==1.1.1
 Flask-PyMongo==2.3.0
+pandas
 pymongo==3.11.2
 psycopg2==2.9.6
 gunicorn==20.1.0
