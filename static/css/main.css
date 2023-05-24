@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Gruppo&family=Major+Mono+Display&family=Martian+Mono:wght@100;200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap');
 
 @property --rotate {
   syntax: "<angle>";
@@ -48,19 +49,20 @@ main {
 }
 
 .title {
-  font-family: 'gruppo', cursive;
-  font-weight: 700;
+  font-family: 'Dosis', sans-serif;
+  font-weight: 400;
   text-transform: uppercase;
+  letter-spacing: 3px;
   color: var(--light-grey);
 
 }
 
 h1>span.title-text {
-  font-family: 'Gruppo', cursive;
+  font-family: 'Dosis', sans-serif;
   text-transform: uppercase;
   color: var(--light-blue);
-  font-weight: 700;
-  letter-spacing: -2px;
+  font-weight: 400;
+  letter-spacing: 3px;
 }
 
 .lead {
@@ -85,7 +87,6 @@ h1>span.title-text {
 
 span {
   color: var(--light-blue);
-  font-weight: 700;
   /* text-shadow: 1px 1px 6px var(--trans-primary-3); */
 }
 
@@ -106,7 +107,9 @@ span {
 /* ***************** Navbar */
 .navbar-brand,
 a.nav-link {
-  font-family: 'gruppo', cursive;
+  font-family: 'Dosis', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* *************** Cover/Landing Page */
@@ -146,12 +149,12 @@ a.cover-link {
   margin: 0 auto;
   padding: 20px;
   background: transparent;
-  border: 2px solid var(--border-color-normal);
+  border: 2px solid #3ea9b3be;
   border-radius: var(--border-radius); 
 }
 
 .btn:focus {
-  outline: 2px solid var(--border-color-hover);
+  outline: 2px solid #3ea9b3be;
 }
 
 .btn:before,
@@ -170,19 +173,19 @@ a.cover-link {
 }
 
 .btn:before {
-  border-bottom: 3.5px solid var(--border-color-hover);
-  border-left: 1.5px solid var(--border-color-hover);
+  border-bottom: 1.5px solid #3ea9b3be;
+  border-left: 1.5px solid #63e7f3;
   transform-origin: 0 100%;
 }
 
 .btn:after {
-  border-top: 3.85px solid var(--border-color-hover);
-  border-right: 1.5px solid var(--border-color-hover);
+  border-top: 1.5px solid #63e7f3;
+  border-right: 1.5px solid #63e7f3;
   transform-origin: 100% 0;
 }
 
 .btn:hover {
-color: var(--text-color-hover);
+color: #63e7f3;
 }
 
 .btn:hover:before,
@@ -191,9 +194,10 @@ transform: scale(1);
 }
 
 a#coverLink {
-  font-family: 'Martian Mono', monospace;
+  font-family: 'Dosis', sans-serif;
   color-interpolation-filters: var(--light);
-  color: #7473b8d4;
+  letter-spacing: 2px;
+  color: #3ea9b3be;
 }
 
 a#coverLink:hover {

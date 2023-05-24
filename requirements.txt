@@ -18,5 +18,13 @@ gunicorn==20.1.0
 Flask==2.3.1
 Flask-Bootstrap==3.3.7.1
 flask-bootstrap5==0.1.dev1
+Flask-Bcrypt==1.0.1
+Flask-Bootstrap==3.3.7.1
+flask-bootstrap5==0.1.dev1
 Flask-Compress==1.13
 Flask-Login==0.6.2
+Flask-Migrate==4.0.4
+flask-restx==1.1.0
+Flask-SQLAlchemy==3.0.3
+Flask-WTF==1.1.1
+Werkzeug==2.3.2
