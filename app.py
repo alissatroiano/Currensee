@@ -3,7 +3,8 @@ from flask import Flask, render_template, request
 import mindsdb_sdk 
 from config import Config
 from settings import MINDSDB_EMAIL, MINDSDB_PASSWORD
-from forms import CoinForm
+
+from forms import CoinForm, login_form
 import pandas as pd
 from pandas import DataFrame
 from flask_sqlalchemy import SQLAlchemy
@@ -80,7 +81,7 @@ def load_user(user_id):
 def login():
     form = login_form()
 
-    return render_template("auth.html",form=form)
+    return render_template("login.html",form=form)
 
 # Register route
 @app.route("/register/", methods=("GET", "POST"), strict_slashes=False)
