@@ -6,7 +6,7 @@ class CoinForm(FlaskForm):
     coin = SelectField('Coin', choices=[('btcusd', 'Bitcoin'), ('ethusd', 'Ethereum'), ('ltcusd', 'Litecoin')], validators=[DataRequired()])
     submit = SubmitField('Get Prediction')
 
-class register_form(FlaskForm):
+class RegisterForm(FlaskForm):
     username = StringField(
         validators=[
             InputRequired(),
@@ -19,16 +19,15 @@ class register_form(FlaskForm):
         ]
     )
     email = StringField(validators=[InputRequired(), Email(), Length(1, 64)])
-    pwd = PasswordField(validators=[InputRequired(), Length(8, 72)])
-    cpwd = PasswordField(
+    password = PasswordField(validators=[InputRequired(), Length(8, 72)])
+    cpassword = PasswordField(
         validators=[
             InputRequired(),
             Length(8, 72),
             EqualTo("pwd", message="Passwords must match !"),
         ]
     )
-
-class login_form(FlaskForm):
+class LoginForm(FlaskForm):
     email = StringField(validators=[InputRequired(), Email(), Length(1, 64)])
     pwd = PasswordField(validators=[InputRequired(), Length(min=8, max=72)])
     # Placeholder labels to enable form rendering

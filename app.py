@@ -3,16 +3,18 @@ from flask import Flask, render_template, request
 import mindsdb_sdk 
 from config import Config
 from settings import MINDSDB_EMAIL, MINDSDB_PASSWORD
-
-from forms import CoinForm, login_form, register_form
+from forms import CoinForm, RegisterForm, LoginForm
 import pandas as pd
 from pandas import DataFrame
+
+server = mindsdb_sdk.connect('https://cloud.mindsdb.com', email=MINDSDB_EMAIL, password=MINDSDB_PASSWORD)
+
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_migrate import Migrate
 from flask_login import LoginManager
-
 from models import User
+
 # Flask Login
 from flask_login import (
     UserMixin,
@@ -30,25 +32,25 @@ login_manager.login_message_category = "info"
 basedir = os.path.abspath(os.path.dirname(__file__))
 from flask_sqlalchemy import SQLAlchemy
 
+
+def create_app():
+    app = Flask(__name__)
+    login_manager = LoginManager()
+    login_manager.login_view = 'login'
+
+    app.config.from_object(Config)
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'database.db')
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    login_manager.init_app(app)
+
+    server = mindsdb_sdk.connect('https://cloud.mindsdb.com', email=MINDSDB_EMAIL, password=MINDSDB_PASSWORD)
+    db = SQLAlchemy(app)
+    bcrypt = Bcrypt(app)
+    migrate = Migrate(app, db)
+
+    return app, db, bcrypt, migrate, server, login_manager
+
 app = Flask(__name__)
-
-login_manager = LoginManager()
-login_manager.login_view = 'login'
-
-app.config.from_object(Config)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'database.db')
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-login_manager.init_app(app)
-
-db = SQLAlchemy(app)
-
-migrate = Migrate(app, db)
-bcrypt = Bcrypt(app)
-login_manager.init_app(app)
-
-server = mindsdb_sdk.connect('https://cloud.mindsdb.com', email=MINDSDB_EMAIL, password=MINDSDB_PASSWORD)
-import mindsdb_sdk
-
 
 @app.route('/')
 def index():
@@ -71,23 +73,23 @@ def validate_uname(self, uname):
     if User.query.filter_by(username=username.data).first():
         raise ValidationError("Username already taken!")
 
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))
+# @login_manager.user_loader
+# def load_user(user_id):
+#     return User.query.get(int(user_id))
 
-# Register route
-@app.route("/register/", methods=("GET", "POST"), strict_slashes=False)
-def register():
-    form = register_form()
+# # Register route
+# @app.route("/register/", methods=("GET", "POST"), strict_slashes=False)
+# def register():
+#     form = register_form()
 
-    return render_template("auth/register.html",form=form)
+#     return render_template("auth/register.html",form=form)
 
-# Login route
-@app.route("/login/", methods=("GET", "POST"), strict_slashes=False)
-def login():
-    form = login_form()
+# # Login route
+# @app.route("/login/", methods=("GET", "POST"), strict_slashes=False)
+# def login():
+#     form = login_form()
 
-    return render_template("auth/login.html",form=form)
+#     return render_template("auth/login.html",form=form)
  
 @app.route('/coins')
 def coins():
