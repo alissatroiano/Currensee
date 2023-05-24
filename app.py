@@ -4,7 +4,7 @@ import mindsdb_sdk
 from config import Config
 from settings import MINDSDB_EMAIL, MINDSDB_PASSWORD
 
-from forms import CoinForm, login_form
+from forms import CoinForm, login_form, register_form
 import pandas as pd
 from pandas import DataFrame
 from flask_sqlalchemy import SQLAlchemy
@@ -75,26 +75,23 @@ def validate_uname(self, uname):
 def load_user(user_id):
     return User.query.get(int(user_id))
 
+# Register route
+@app.route("/register/", methods=("GET", "POST"), strict_slashes=False)
+def register():
+    form = register_form()
+
+    return render_template("auth/register.html",form=form)
 
 # Login route
 @app.route("/login/", methods=("GET", "POST"), strict_slashes=False)
 def login():
     form = login_form()
 
-    return render_template("login.html",form=form)
-
-# Register route
-@app.route("/register/", methods=("GET", "POST"), strict_slashes=False)
-def register():
-    form = register_form()
-
-    return render_template("auth.html",form=form)
+    return render_template("auth/login.html",form=form)
  
-
 @app.route('/coins')
 def coins():
-    return render_template('coins.html', title='Coins')
-
+    return render_template('coins/coins.html', title='Coins')
 
 @app.route('/bitcoin', methods=['GET', 'POST'])
 def bitcoin():
@@ -105,8 +102,7 @@ def bitcoin():
     query = project.query('SELECT T.Date as Date, T.Close as Close FROM mindsdb.eth_1 as T JOIN files.Ethereum as P WHERE P.Date > LATEST LIMIT 14;')
     # create a dataframe for data from query
     eth_df = DataFrame.to_html(query.fetch(), index=False)
-    return render_template('bitcoin.html')
-
+    return render_template('coins/bitcoin.html')
 
 @app.route('/ethereum', methods=['GET', 'POST'])
 def ethereum():
@@ -118,12 +114,7 @@ def ethereum():
     # create a dataframe for data from query
     eth_df = DataFrame.to_html(query.fetch(), index=False)
 
-    return render_template('ethereum.html', query=query, eth_df=eth_df)
-
-
-# @app.route('/login', methods=['GET', 'POST'])
-# def login():
-
+    return render_template('coins/ethereum.html', query=query, eth_df=eth_df)
 
 if __name__ == '__main__':
     app.run(debug=True)
