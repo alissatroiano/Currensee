@@ -49,20 +49,20 @@ main {
 }
 
 .title {
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Gruppo', cursive;
   font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 3px;
+  letter-spacing: -1px;
   color: var(--light-grey);
 
 }
 
 h1>span.title-text {
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Gruppo', cursive;
   text-transform: uppercase;
   color: var(--light-blue);
-  font-weight: 400;
-  letter-spacing: 3px;
+  font-weight: 700;
+  letter-spacing: -1px;
 }
 
 .lead {
