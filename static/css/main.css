@@ -319,6 +319,7 @@ section.bitcoin {
 }
 
 /* ---------------- Ethereum Predictions */
+#dogecoin,
 section#ethereum {
   background-color: var(--dark);
   min-height: 100vh;
@@ -328,6 +329,15 @@ section#ethereum {
 
 .table {
   text-align: start;
+}
+
+th, th#text {
+  text-align: start;
+}
+
+th,
+tr {
+  padding: 0 20px;
 }
 
 

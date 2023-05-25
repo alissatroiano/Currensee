@@ -43,7 +43,7 @@ def ethereum():
     """
     project = server.get_project('mindsdb')
     query = project.query('SELECT T.Date as Date, T.Close '
-                          'as Close FROM mindsdb.eth_1 as T JOIN files.Ethereum '
+                          'as Close, Close_Explain FROM mindsdb.eth_1 as T JOIN files.Ethereum '
                           'as P WHERE P.Date > LATEST LIMIT 7;')
     # create a dataframe for data from query
     eth_df = DataFrame.to_html(query.fetch(), index=False)

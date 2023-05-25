@@ -2,17 +2,18 @@
 {% block content %}
 
 <section class="ethereum p-3" id="ethereum">
-    <div class="row text-start my-0 mx-auto p-3 p-md-4">
-      <div class="col-12 my-3 my-md-4">
-        <h2 class="title display-4 text-light">ETHEREUM</h2>
-        <hr class="my-3">
-        <h2 class="title prediction-text display-4 text-light">PREDICTIONS</h2>
-      </div>
-      <div class="col-12 col-sm-8 offset-2 d-flex justify-content-start align-items-start table-responsive">
-        <table class="table table-striped table-hover p-3">
-          <thead>
-          </thead>
-          <tbody>
+  <div class="row text-start my-0 mx-auto p-3 p-md-4">
+    <div class="col-12 my-3 my-md-4">
+      <h2 class="title display-4 text-light">Ethereum</h2>
+      <hr class="my-3">
+      <h2 class="title prediction-text display-4 text-light">PREDICTIONS</h2>
+    </div>
+    <div class="d-flex justify-content-start align-items-start table-responsive">
+      <div class="col-12 p-3">
+      <table class="table table-striped table-hover p-3">
+        <thead>
+        </thead>
+        <tbody>
             {{ eth_df | safe }}
           </tbody>
         </table>
