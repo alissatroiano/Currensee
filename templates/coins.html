@@ -6,7 +6,7 @@
   <div class="row p-2 p-md-4 my-0 mx-auto">
     <div class="col-12 text-start p-3 mt-md-4 text-light">
       <h2 class="my-2 border-bottom display-3 title">Coins</h2>
-      <p class="subheading">Click on a coin to view data from Currensee's <span class="mdb">MindsDB</span> prediction models</p>
+      <p class="subheading">Click on a coin to get this week's price predictions from <span class="mdb">MindsDB</span></p>
     </div>
   </div>
   <div class="row g-3" data-masonry='{"percentPosition": true }'>
@@ -15,7 +15,6 @@
          <a class="stretched-link" href="{{ url_for ('bitcoin') }}"></a>
           <img src="../static/images/bitcoin-logo.png" alt="Bitcoin logo" class="img-fluid">
           <h4>Bitcoin</h4>
-
         </div>
       </div>
       <div class="col-sm-6 col-lg-4 mb-4" >
@@ -32,7 +31,8 @@
           <div class="d-flex flex-column p-5 pb-3 front">
             <img src="../static/images/doge-blue.png"
               class="img-fluid">
-            <h4>Dogecoin: Coming Soon</h4>
+              <a class="stretched-link" href="{{ url_for ('dogecoin') }}"></a>
+            <h4>Dogecoin</h4>
           </div>
         </div>
       </div> 
