@@ -76,7 +76,7 @@ The financial app is being developed using the following technologies:
 
 - [MindsDB](https://mindsdb.com/): MindsDB is an open-source machine learning tool that simplifies the process of building and deploying predictive models. Currensee will use MindsDB to create custom prediction models and train them on historical data.
 
-- [MindsDB Python SDK](): Will be used to establish to the connection between MindsDB and this application.
+- [MindsDB Python SDK](https://pypi.org/project/mindsdb-sdk/): Will be used to establish to the connection between MindsDB and this application.
 
 - [Google Fonts](https://fonts.google.com/specimen/Inter?query=inter) - Used for applying font styles to all typography
 ## Credits
