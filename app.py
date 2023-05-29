@@ -1,12 +1,23 @@
+import io
+import random
+from flask import Response
+from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+from matplotlib.figure import Figure
+
+from datetime import date
 from flask import Flask, render_template
 import mindsdb_sdk 
 from config import Config
 from settings import MINDSDB_EMAIL, MINDSDB_PASSWORD
 import pandas as pd
 from pandas import DataFrame
+import csv
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib as mpl
+import base64
+from io import BytesIO
+from matplotlib.figure import Figure
 
 app = Flask(__name__)
 
@@ -32,18 +43,81 @@ def bitcoin():
     """
     project = server.get_project('mindsdb')
     query = project.query('SELECT T.date as date, T.price as Prediction, price_explain FROM mindsdb.bitcoin_model as T JOIN files.bitcoin_data as P WHERE P.Date > LATEST LIMIT 7')
+    # save query data to a csv file
+    query.fetch().to_csv('static/data/bitcoin.csv', index=False)
     # create a dataframe for data from query
-    btc_df = pd.DataFrame.to_html(query.fetch(), index=False)
-    # create a plot
-    plt.style.use('seaborn')
-    plt.figure(figsize=(10, 5))
-    plt.plot(btc_df['date'], btc_df['Prediction'], color='green', marker='o', linestyle='dashed', linewidth=2, markersize=12)
-    plt.xticks(rotation=45)
-    plt.show()
-    plt.savefig('static/images/bitcoin.png')
+    df = pd.read_csv('static/data/bitcoin.csv')
+    btc_df = DataFrame.to_html(df, index=False)
 
-    return render_template('coins/bitcoin.html', query=query, 
-                           btc_df=btc_df)
+    return render_template('coins/bitcoin.html', title='Bitcoin', btc_df=btc_df, query=query)
+
+@app.route('/plot.png')
+def plot_png():
+        """
+        Method to plot data from bitcoin.csv file
+        """
+        x = []
+        y = []
+
+        with open ('static/data/bitcoin.csv','r') as csvfile:
+            lines = csv.reader(csvfile, delimiter=',')
+            for row in lines:
+                x.append(row[0])
+                y.append(row[1])
+
+        fig = create_figure()
+        output = io.BytesIO()
+        FigureCanvas(fig).print_png(output)
+        return Response(output.getvalue(), mimetype='image/png')
+
+def create_figure():
+    """
+    Method to create a figure from bitcoin.csv file
+    """
+    df = pd.read_csv('static/data/bitcoin.csv')
+    fig = Figure()
+    axis = fig.add_subplot(1, 1, 1)
+    axis.plot(df['date'], df['Prediction'])
+    return fig
+
+
+@app.route('/bitcoin_chart')
+def bitcoin_chart():
+    """
+    Method to trigger chart plot of bitcoin prediction data when a user clicks the bitcoin card on coins.html
+    """
+    fig = Figure()
+    ax = fig.subplots()
+    ax.plot([1, 2])
+    # Save it to a temporary buffer.
+    buf = BytesIO()
+    fig.savefig(buf, format="png")
+    # Embed the result in the html output.
+    data = base64.b64encode(buf.getbuffer()).decode("ascii")
+    return f"<img src='data:image/png;base64,{data}'/>"
+  
+
+#     date = 'date'
+#     prediction = 'prediction'
+
+#     project = server.get_project('mindsdb')
+#     query = project.query('SELECT T.date as date, T.price as Prediction, price_explain FROM mindsdb.bitcoin_model as T JOIN files.bitcoin_data as P WHERE P.Date > LATEST LIMIT 7')
+#     btc_df = pd.DataFrame.to_html(query.fetch(), index=False)
+#     data = { date : query.fetch()['date'], prediction : query.fetch()['Prediction']}
+#     # create a dataframe for data from query
+#     df = pd.DataFrame(data, columns=[date, 'prediction'])
+#     btc_array = df.to_numpy()
+#     # create a chart and plot data from query
+#     plt.plot(df['date'], df['prediction'])
+#     plt.xlabel('Date')
+#     plt.ylabel('Price')
+#     plt.title('Bitcoin Price Prediction')
+#     plt.savefig('static/images/bitcoin.png')
+#     plt.show()
+    
+#     return render_template('coins/bitcoin_chart.html', query=query, 
+#                            btc_df=btc_df, df=df)
+
 
 @app.route('/ethereum', methods=['GET', 'POST'])
 def ethereum():
