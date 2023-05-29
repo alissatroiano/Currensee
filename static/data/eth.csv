@@ -1,0 +1,8 @@
+Date,Price,Price_Explain
+2023-05-25 00:00:00.000000,1795.7045723820365,"{""predicted_value"": 1795.7045723820365, ""confidence"": 0.99, ""anomaly"": false, ""truth"": null, ""confidence_lower_bound"": 1757.4801227679568, ""confidence_upper_bound"": 1833.9290219961163}"
+2023-05-26 00:00:00.000000,1828.194258061651,"{""predicted_value"": 1828.194258061651, ""confidence"": 0.99, ""anomaly"": null, ""truth"": null, ""confidence_lower_bound"": 1775.0521686111583, ""confidence_upper_bound"": 1881.3363475121437}"
+2023-05-27 00:00:00.000000,1807.9073697976223,"{""predicted_value"": 1807.9073697976223, ""confidence"": 0.99, ""anomaly"": null, ""truth"": null, ""confidence_lower_bound"": 1751.4437539625599, ""confidence_upper_bound"": 1864.3709856326848}"
+2023-05-28 00:00:00.000000,1797.5351226048651,"{""predicted_value"": 1797.5351226048651, ""confidence"": 0.99, ""anomaly"": null, ""truth"": null, ""confidence_lower_bound"": 1730.3646483294012, ""confidence_upper_bound"": 1864.705596880329}"
+2023-05-29 00:00:00.000000,1809.993669695836,"{""predicted_value"": 1809.993669695836, ""confidence"": 0.99, ""anomaly"": null, ""truth"": null, ""confidence_lower_bound"": 1726.298208984566, ""confidence_upper_bound"": 1893.689130407106}"
+2023-05-30 00:00:00.000000,1824.6945904599181,"{""predicted_value"": 1824.6945904599181, ""confidence"": 0.99, ""anomaly"": null, ""truth"": null, ""confidence_lower_bound"": 1720.7054867961583, ""confidence_upper_bound"": 1928.683694123678}"
+2023-05-31 00:00:00.000000,1816.2259815404586,"{""predicted_value"": 1816.2259815404586, ""confidence"": 0.99, ""anomaly"": null, ""truth"": null, ""confidence_lower_bound"": 1686.9341303426843, ""confidence_upper_bound"": 1945.517832738233}"

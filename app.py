@@ -59,7 +59,7 @@ def plot_png():
         x = []
         y = []
 
-        with open ('static/data/bitcoin.csv','r') as csvfile:
+        with open ('static/data/btc.csv','r') as csvfile:
             lines = csv.reader(csvfile, delimiter=',')
             for row in lines:
                 x.append(row[0])
@@ -74,49 +74,11 @@ def create_figure():
     """
     Method to create a figure from bitcoin.csv file
     """
-    df = pd.read_csv('static/data/bitcoin.csv')
+    df = pd.read_csv('static/data/btc.csv')
     fig = Figure()
     axis = fig.add_subplot(1, 1, 1)
     axis.plot(df['date'], df['Prediction'])
     return fig
-
-
-@app.route('/bitcoin_chart')
-def bitcoin_chart():
-    """
-    Method to trigger chart plot of bitcoin prediction data when a user clicks the bitcoin card on coins.html
-    """
-    fig = Figure()
-    ax = fig.subplots()
-    ax.plot([1, 2])
-    # Save it to a temporary buffer.
-    buf = BytesIO()
-    fig.savefig(buf, format="png")
-    # Embed the result in the html output.
-    data = base64.b64encode(buf.getbuffer()).decode("ascii")
-    return f"<img src='data:image/png;base64,{data}'/>"
-  
-
-#     date = 'date'
-#     prediction = 'prediction'
-
-#     project = server.get_project('mindsdb')
-#     query = project.query('SELECT T.date as date, T.price as Prediction, price_explain FROM mindsdb.bitcoin_model as T JOIN files.bitcoin_data as P WHERE P.Date > LATEST LIMIT 7')
-#     btc_df = pd.DataFrame.to_html(query.fetch(), index=False)
-#     data = { date : query.fetch()['date'], prediction : query.fetch()['Prediction']}
-#     # create a dataframe for data from query
-#     df = pd.DataFrame(data, columns=[date, 'prediction'])
-#     btc_array = df.to_numpy()
-#     # create a chart and plot data from query
-#     plt.plot(df['date'], df['prediction'])
-#     plt.xlabel('Date')
-#     plt.ylabel('Price')
-#     plt.title('Bitcoin Price Prediction')
-#     plt.savefig('static/images/bitcoin.png')
-#     plt.show()
-    
-#     return render_template('coins/bitcoin_chart.html', query=query, 
-#                            btc_df=btc_df, df=df)
 
 
 @app.route('/ethereum', methods=['GET', 'POST'])
@@ -127,10 +89,37 @@ def ethereum():
     """
     project = server.get_project('mindsdb')
     query = project.query('SELECT T.Date as Date, T.price AS Price, Price_Explain FROM mindsdb.ethereum as T JOIN files.ethereum_data as P WHERE P.Date > LATEST LIMIT 7;')
-    # create a dataframe for data from query
-    eth_df = DataFrame.to_html(query.fetch(), index=False)
+    # save data to a csv file
+    query.fetch().to_csv('static/data/eth.csv', index=False)
+    eth_df = pd.read_csv('static/data/eth.csv')
+    eth_df = DataFrame.to_html(eth_df, index=False)
+    
+    if DataFrame.empty:
+        return render_template('coins/ethereum.html', query=query, eth_df=eth_df)
+    else:
+        return render_template('coins/ethereum.html', query=query, eth_df=eth_df)
+    
+# @app.route('/plot2.png')
+# def plot2_png():
+#     x = []
+#     y = []
+#     with open ('static/data/eth.csv','r') as csvfile:
+#         lines = csv.reader(csvfile, delimiter=',')
+#         for row in lines:
+#             x.append(row[0])
+#             y.append(row[1])
 
-    return render_template('coins/ethereum.html', query=query, eth_df=eth_df)
+#     fig = create_figure()
+#     output = io.BytesIO()
+#     FigureCanvas(fig).print_png(output)
+#     return Response(output.getvalue(), mimetype='image/png')
+
+# def create_figure():
+#     df = pd.read_csv('static/data/eth.csv')
+#     fig = Figure()
+#     axis = fig.add_subplot(1, 1, 1)
+#     axis.plot(df['date'], df['Prediction'])
+#     return fig
 
 
 @app.route('/dogecoin', methods=['GET', 'POST'])
