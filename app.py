@@ -136,7 +136,7 @@ def dogecoin():
     return render_template('coins/dogecoin.html', query=query, doge_df=doge_df)
 
 
-@app.route('/dogecoin', methods=['GET', 'POST'])
+@app.route('/litecoin', methods=['GET', 'POST'])
 def litecoin():
     """
     Method to return dogecoin prediction data when

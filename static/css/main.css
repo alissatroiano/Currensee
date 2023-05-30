@@ -233,9 +233,9 @@ main.container-fluid {
 }
 
 /* -------------------- Coins */
-section.coins {
+section#coins {
   background-color: var(--dark);
-  min-height: 100vh;
+  height: 100vh;
 }
 
 .card {
