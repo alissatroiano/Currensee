@@ -5,7 +5,7 @@
 -- PREDICT Close
 -- ORDER BY Date
 -- WINDOW 3125
--- HORIZON 60;
+-- HORIZON 60
 
 
 CREATE VIEW mindsdb.b_view AS (
@@ -15,7 +15,7 @@ CREATE VIEW mindsdb.b_view AS (
         Close_Explain
     FROM files.bitcoin AS t
     JOIN mindsdb.bitcoin AS p
-);
+)
 
 
 
@@ -25,7 +25,7 @@ CREATE VIEW mindsdb.btcusd AS (
         p.Close AS Close
     FROM files.bitcoin AS t
     JOIN mindsdb.bitcoin AS p
-);
+)
 
 <!-- 
 CREATE VIEW mindsdb.btc_usd_df AS (
