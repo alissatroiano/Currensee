@@ -37,7 +37,7 @@ def forecast_crypto_price(crypto_name):
     forecast = model.predict(future)
 
     # Plot the forecast
-    fig1 = model.plot(forecast)
+    model.plot(forecast)
 
 
 # fucntion calling
